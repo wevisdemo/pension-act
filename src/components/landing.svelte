@@ -1,4 +1,0 @@
-<div class="flex flex-col justify-center items-center gap-4 h-screen">
-  <h1 class="text-2xl text-bold">CONFORALL</h1>
-  <button class="btn btn-primary">Coming soon!</button>
-</div>
