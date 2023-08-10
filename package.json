@@ -17,10 +17,14 @@
 	"dependencies": {
 		"@astrojs/svelte": "^3.1.0",
 		"@astrojs/tailwind": "^4.0.0",
+		"@felte/reporter-svelte": "^1.1.10",
 		"astro": "^2.10.4",
 		"d3-fetch": "^3.0.1",
+		"felte": "^1.2.11",
+		"signature_pad": "^4.1.6",
 		"svelte": "^4.0.0",
-		"tailwindcss": "^3.0.24"
+		"tailwindcss": "^3.0.24",
+		"valibot": "^0.11.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.7.0",
