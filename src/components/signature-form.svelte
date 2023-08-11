@@ -2,37 +2,29 @@
 	import { onMount } from 'svelte';
 	import { createForm } from 'felte';
 	import { reporter, ValidationMessage } from '@felte/reporter-svelte';
-	import {
-		object,
-		string,
-		length,
-		toTrimmed,
-		flatten,
-		parse,
-		ValiError,
-	} from 'valibot';
+	import { flatten, parse, ValiError } from 'valibot';
 	import SignaturePad from 'signature_pad';
+	import { documentSchema } from '../models/document';
+	import { submitDocument } from '../utils/firebase';
 
 	let signatureCanvas: HTMLCanvasElement;
 	let signaturePad: SignaturePad;
 
-	const formSchema = object({
-		personalid: string([toTrimmed(), length(13, 'รหัสประชาชนต้องมี 13 หลัก')]),
-		signature: string('กรุณาเซ็นชื่อ'),
-	});
-
 	const { form, setTouched, setData } = createForm({
 		validate(values) {
 			try {
-				parse(formSchema, values);
+				parse(documentSchema, values);
 			} catch (e) {
 				return flatten(e as ValiError).nested;
 			}
 			return {};
 		},
-		onSubmit(values) {
-			const data = parse(formSchema, values);
-			console.log(data);
+		async onSubmit(values) {
+			try {
+				await submitDocument(parse(documentSchema, values));
+			} catch (e) {
+				alert(e);
+			}
 		},
 		extend: reporter,
 	});
