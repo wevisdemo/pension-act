@@ -5,12 +5,17 @@ import SignatureForm from '../components/signature-form.svelte';
 
 <Main>
 	<div class="flex flex-col justify-center items-center">
-		<h1 class="text-2xl text-bold">CONFORALL</h1>
-		<a href="/locations" class="btn btn-primary">See locations</a>
-		<p class="heading-responsive-01">test</p>
-		<p class="body-02 font-semibold">test</p>
-		<p class="body-03 font-bold">test</p>
-	</div>
+		<section class="bg-primary">
+			<div>
+				<h1 class="text-2xl text-bold text-base-100">CONFORALL</h1>
+				<a href="/locations" class="btn btn-secondary">See locations</a>
+			</div>
+		</section>
 
-	<SignatureForm client:load />
+		<section class="bg-base-300">
+			<div>
+				<SignatureForm client:load />
+			</div>
+		</section>
+	</div>
 </Main>
