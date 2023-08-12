@@ -19,9 +19,11 @@
 	<div class="text-center mt-[12px] md:mt-[0px] md:ml-[48px] grid gap-[12px]">
 		<div>
 			<h2 class="heading-responsive-02 text-base-100">ต้องการ 50,000 ชื่อ</h2>
-			<h2 class="heading-responsive-02 text-base-100 flex justify-center">
+			<h2
+				class="heading-responsive-02 text-base-100 flex justify-center items-center"
+			>
 				ภายใน <span
-					class="w-[36px] h-[36px] mx-[4px] rounded-full bg-primary-focus text-shadow-animation animate-pulse duration-1000 infinite"
+					class="w-[36px] h-[36px] mx-[4px] flex justify-center items-center rounded-full bg-primary-focus text-shadow-animation animate-pulse duration-1000 infinite"
 					>7</span
 				>
 				วัน
