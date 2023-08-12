@@ -37,19 +37,17 @@
 				</button>
 			</a>
 			<!-- TODO: add href id -->
-			<a href="/">
-				<a href="/">
-					<button
-						class="btn btn-block btn-secondary font-minimal text-[26px] mt-[4px]"
-						>อาสาตั้งโต๊ะเข้าชื่อ
-						<img src="/icons/table.svg" alt="icon-table" />
-					</button>
-				</a>
+			<a href="#table-register">
+				<button
+					class="btn btn-block btn-secondary font-minimal text-[26px] mt-[4px]"
+					>อาสาตั้งโต๊ะเข้าชื่อ
+					<img src="/icons/table.svg" alt="icon-table" />
+				</button>
 			</a>
 		</div>
 		<a
 			class="text-decoration-line: underline font-minimal text-[26px] text-info"
-			href="/#event-reasons">ทำไมต้องลงชื่อ</a
+			href="#event-reasons">ทำไมต้องลงชื่อ</a
 		>
 		<SocialGroup />
 	</div>
