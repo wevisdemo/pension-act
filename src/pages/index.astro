@@ -1,15 +1,18 @@
 ---
 import Main from '../layouts/main.astro';
 import SignatureForm from '../components/signature-form.svelte';
+import EventReason from '../components/event-reasons.svelte';
+import Welcome from '../components/welcome.svelte';
 ---
 
 <Main>
 	<div class="flex flex-col justify-center items-center">
-		<section class="bg-primary">
-			<div>
-				<h1 class="text-2xl text-bold text-base-100">CONFORALL</h1>
-				<a href="/locations" class="btn btn-secondary">See locations</a>
-			</div>
+		<section class="bg-primary min-h-screen flex justify-center items-center">
+			<Welcome />
+		</section>
+
+		<section id="event-reasons" class="bg-[#F8EB54]">
+			<EventReason />
 		</section>
 
 		<section class="bg-base-300">
