@@ -8,10 +8,11 @@ import Welcome from '../components/welcome.svelte';
 <Main>
 	<div class="flex flex-col justify-center items-center">
 		<section class="bg-primary min-h-screen flex justify-center items-center">
-			<Welcome />
+			<Welcome client:load />
 		</section>
 
 		<section id="event-reasons" class="bg-[#F8EB54]">
+			<div class="h-[30px] sticky bottom-0"></div>
 			<EventReason />
 		</section>
 

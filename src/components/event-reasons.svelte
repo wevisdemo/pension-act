@@ -33,7 +33,7 @@
 			</p>
 			<br />
 			<a
-				class="text-decoration-line: underline text-primary"
+				class="text-decoration-line: underline text-[-webkit-link]"
 				target="_blank"
 				href="https://ilaw.or.th/node/6612">รายละเอียดเพิ่มเติม</a
 			>
