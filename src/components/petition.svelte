@@ -75,6 +75,8 @@
             </div>
         </div>
     {:else}
-        <SignatureForm />
+        <div class="bg-base-100 px-[10px] py-5">
+            <SignatureForm />
+        </div>
     {/if}
 </div>
