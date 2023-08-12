@@ -31,14 +31,12 @@
 			<p class="text-base-100 text-[12px] text-[#aaaaaa]">เดทไลน์ 20 ส.ค. 66</p>
 		</div>
 		<div>
-			<!-- TODO: add href id -->
-			<a href="/">
+			<a href="#petition">
 				<button class="btn btn-block font-minimal text-[26px]"
 					>ลงชื่อเลย
 					<img src="/icons/pen.svg" alt="icon-pen" />
 				</button>
 			</a>
-			<!-- TODO: add href id -->
 			<a href="#table-register">
 				<button
 					class="btn btn-block btn-secondary font-minimal text-[26px] mt-[4px]"
