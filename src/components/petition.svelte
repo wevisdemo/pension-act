@@ -1,26 +1,18 @@
 <script lang="ts">
 	import SignatureForm from "./signature-form.svelte";
-
 	let petitionByHardPaper = true;
-    const switcherClasses = (active: boolean) => {
-        const classes = 'btn join-item flex-1 heading-03 gap-1 py-2 px-6'
-        if (active) {
-            return classes;
-         }
-         return classes + ' opacity-50';
-    }
 </script>
 
 <div class="text-center grid gap-3 body-02-normal">
     <h3 class="heading-responsive-03">ร่วมลงชื่อ</h3>
     <div class="join w-full">
-        <button class={switcherClasses(petitionByHardPaper)} on:click={() => petitionByHardPaper = true}>
+        <button class="btn join-item flex-1 heading-03 gap-1 py-2 px-6 {petitionByHardPaper ? '' : 'opacity-50'}" on:click={() => petitionByHardPaper = true}>
             แบบกระดาษ
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                 <path d="M11.5 3.33838C10.8584 3.33838 10.2311 3.5283 9.69722 3.88422C9.16336 4.24013 8.74678 4.7461 8.5 5.33838C8.25322 4.7461 7.83664 4.24013 7.30278 3.88422C6.76891 3.5283 6.14163 3.33838 5.5 3.33838C4.70435 3.33838 3.94129 3.65445 3.37868 4.21706C2.81607 4.77967 2.5 5.54273 2.5 6.33838C2.5 9.40088 8.5 14.3384 8.5 14.3384C8.5 14.3384 14.5 9.40088 14.5 6.33838C14.5 5.54273 14.1839 4.77967 13.6213 4.21706C13.0587 3.65445 12.2956 3.33838 11.5 3.33838Z" fill="black"/>
             </svg>
         </button>
-        <button class={switcherClasses(!petitionByHardPaper)} on:click={() => petitionByHardPaper = false}>แบบออนไลน์</button>
+        <button class="btn join-item flex-1 heading-03 gap-1 py-2 px-6 {petitionByHardPaper ? 'opacity-50' : ''}" on:click={() => petitionByHardPaper = false}>แบบออนไลน์</button>
     </div>
     {#if petitionByHardPaper}
         <p>
