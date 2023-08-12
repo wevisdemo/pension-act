@@ -5,6 +5,7 @@ import EventReason from '../components/event-reasons.svelte';
 import Welcome from '../components/welcome.svelte';
 import TableRegister from '../components/table-register.svelte';
 import Partner from '../components/partner.svelte';
+import Petition from '../components/petition.svelte';
 ---
 
 <Main>
@@ -15,6 +16,10 @@ import Partner from '../components/partner.svelte';
 
 		<section id="event-reasons" class="bg-[#F8EB54]">
 			<EventReason />
+		</section>
+
+		<section class="bg-secondary-focus">
+			<Petition client:load />
 		</section>
 
 		<section id="table-register">
