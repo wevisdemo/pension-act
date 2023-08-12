@@ -4,7 +4,9 @@
 </script>
 
 {#await fetchLocations()}
-	Loading...
+	<div class="flex h-full w-full items-center justify-center">
+		<span class="loading loading-spinner loading-lg"></span>
+	</div>
 {:then locations}
 	{@const provinces = [...new Set(locations.map((l) => l.province))]}
 	{@const filteredProvinces = provinces.filter(p => keyword ? p.startsWith(keyword) : true)}	
