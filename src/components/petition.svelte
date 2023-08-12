@@ -40,13 +40,13 @@
             <h1 class="heading-responsive-01 mb-3">วิธีที่ 2 : ดาวน์โหลดแบบฟอร์มมากรอก</h1>
             <div class="border-t grid gap-2 py-5">
                 <p class="heading-03">1. ดาวน์โหลดแบบฟอร์ม และพิมพ์ลงกระดาษ A4</p>
-                <button class="btn btn-block btn-primary text-[16px] normal-case heading-03 text-base-100">
+                <a target="_blank" href="https://pin.ski/3Qtz6l3" class="btn btn-block btn-primary text-[16px] normal-case heading-03 text-base-100">
                     ดาวน์โหลดแบบฟอร์ม
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <rect width="16" height="16" fill="white" style="mix-blend-mode:multiply"/>
+                        <rect width="16" height="16" fill="transparent" style="mix-blend-mode:multiply"/>
                         <path d="M13.5 1.5H2.5C2.23478 1.5 1.98043 1.60536 1.79289 1.79289C1.60536 1.98043 1.5 2.23478 1.5 2.5V13.5C1.5 13.7652 1.60536 14.0196 1.79289 14.2071C1.98043 14.3946 2.23478 14.5 2.5 14.5H13.5C13.7652 14.5 14.0196 14.3946 14.2071 14.2071C14.3946 14.0196 14.5 13.7652 14.5 13.5V2.5C14.5 2.23478 14.3946 1.98043 14.2071 1.79289C14.0196 1.60536 13.7652 1.5 13.5 1.5ZM13.5 2.5V4.5H2.5V2.5H13.5ZM8.5 5.5H13.5V9H8.5V5.5ZM7.5 9H2.5V5.5H7.5V9ZM2.5 10H7.5V13.5H2.5V10ZM8.5 13.5V10H13.5V13.5H8.5Z" fill="white"/>
                     </svg>
-                </button>
+                </a>
             </div>
             <div class="border-t grid gap-2 py-5">
                 <p class="heading-03">2. ลงลายมือชื่อบนแบบฟอร์ม</p>
