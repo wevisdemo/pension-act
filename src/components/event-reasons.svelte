@@ -59,7 +59,11 @@
 			<p class="text-left font-minimal">ประเด็นสำคัญ</p>
 			<div class="flex flex-col md:flex-row mt-[4px]">
 				<div>
-					<ExpandedCard header1="รัฐธรรมนูญ" header2="เขียนใหม่ทั้งฉบับ">
+					<ExpandedCard
+						header1="รัฐธรรมนูญ"
+						header2="เขียนใหม่ทั้งฉบับ"
+						tabindex={1}
+					>
 						<div>
 							<p>
 								รัฐธรรมนูญ 2560 มีที่มาจากระบอบคสช.
@@ -80,7 +84,7 @@
 					</ExpandedCard>
 				</div>
 				<div class="mt-[4px] md:ml-[4px] md:mt-[0px]">
-					<ExpandedCard header1="สสร." header2="เลือกตั้ง 100%">
+					<ExpandedCard header1="สสร." header2="เลือกตั้ง 100%" tabindex={2}>
 						<div>
 							<p>
 								ความฝันที่จะมีรัฐธรรมนูญฉบับใหม่
