@@ -1,30 +1,23 @@
 ---
 import Main from '../layouts/main.astro';
-import SignatureForm from '../components/signature-form.svelte';
 import EventReason from '../components/event-reasons.svelte';
 import Welcome from '../components/welcome.svelte';
 import TableRegister from '../components/table-register.svelte';
 import Partner from '../components/partner.svelte';
 import Petition from '../components/petition.svelte';
-import { onMount } from 'svelte';
 import Navbar from '../components/navbar.svelte';
-import { atom } from 'nanostores';
-const $navShow = atom(false);
 ---
 
 <script>
 	const handleIntersection: IntersectionObserverCallback = (entries) => {
 		entries.forEach((entry) => {
 			const nav = document.getElementById('nav');
-
 			if (entry.isIntersecting) {
-				console.log('enter nav');
 				nav?.setAttribute(
 					'class',
 					'fixed invisible max-h-0 opacity-0 bg-primary p-0 w-screen fixed bottom-0 z-50 transition-all duration-300 ease-out',
 				);
 			} else {
-				console.log('exit nav');
 				nav?.setAttribute(
 					'class',
 					'fixed visible max-h-[80px] opacity-100 bg-primary p-0 w-screen fixed bottom-0 z-50 transition-all duration-300 ease-in',
@@ -35,7 +28,6 @@ const $navShow = atom(false);
 
 	const welcome = document.getElementById('welcome');
 	if (welcome) {
-		console.log('welcome => ', welcome);
 		const observer = new IntersectionObserver(handleIntersection);
 		observer.observe(welcome);
 	}
