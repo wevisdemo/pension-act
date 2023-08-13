@@ -1,6 +1,16 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 	import SignatureForm from "./signature-form.svelte";
 	let petitionByHardPaper = true;
+
+
+    onMount(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const online = urlParams.has('online');
+        if (online) {
+            petitionByHardPaper = false;
+        }
+	});
 </script>
 
 <div class="text-center grid gap-3 body-02-normal">
