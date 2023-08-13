@@ -9,7 +9,7 @@
 		<span class="hidden md:block text-base-100 heading-03 mr-[12px]"
 			>แชร์ให้เพื่อน</span
 		>
-		<SocialGroup />
+		<SocialGroup url="https://conforall.com" />
 	</div>
 	<div class="max-w-[158px] md:max-w-[240px] flex-1">
 		<a href="#petition">
