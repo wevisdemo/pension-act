@@ -67,13 +67,6 @@
                         ตู้ ปณ.79 ปณศ.สามเสนใน เขตพญาไท กรุงเทพฯ ประเทศไทย 10400 โทร. 0996786031
                     </p>
                 </div>
-                <div class="grid gap-1">
-                    <p>3.3. สแกนแล้วส่งอีเมลล์มาที่</p>
-                    <p class="p-2 font-semibold bg-[#F2F2F2] text-center">
-                        conforall66@gmail.com
-                    </p>
-                </div>
-                
             </div>
         </div>
     {:else}

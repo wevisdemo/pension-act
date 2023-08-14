@@ -66,10 +66,6 @@
 			<p class="p-[8px] font-bold bg-[#F2F2F2] text-center">
 				ตู้ ปณ.79 ปณศ.สามเสนใน เขตพญาไท กรุงเทพฯ ประเทศไทย 10400 โทร. 0996786031
 			</p>
-			<p>3.3. สแกนแล้วส่งอีเมล์มาที่</p>
-			<p class="p-[8px] font-bold bg-[#F2F2F2] text-center">
-				conforall66@gmail.com
-			</p>
 		</div>
 		<div class="w-full border-t border-base-300 my-[32px]" />
 		<div class="grid gap-[8px]">
