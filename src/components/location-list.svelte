@@ -9,7 +9,7 @@
 	</div>
 {:then locations}
 	{@const provinces = [...new Set(locations.map((l) => l.province))]}
-	{@const filteredProvinces = provinces.filter(p => keyword ? p.startsWith(keyword) : true)}	
+	{@const filteredProvinces = provinces.filter(p => keyword ? p.startsWith(keyword) : true).sort()}
 
 	<h1 class="heading-responsive-02 text-center leading-none mb-[30px]">
 		มีจุดตั้งโต๊ะทั้งหมด {locations.length} จุด ใน {provinces.length} จังหวัด
