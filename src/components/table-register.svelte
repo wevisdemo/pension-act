@@ -51,8 +51,7 @@
 		<div class="grid gap-[8px]">
 			<ol class="list-[auto]" type="1">
 				<li value="3" class="font-minimal text-[24px] leading-[24px] ml-[20px]">
-					ส่งเอกสารรวบรวมรายชื่อมายังสำนักงาน iLaw ภายในเวลา 20.00 น. ของวันที่
-					20 สิงหาคม 2566
+					ส่งเอกสารรวบรวมรายชื่อมายังสำนักงาน iLaw
 				</li>
 			</ol>
 			<p>3.1. นำส่งด้วยตัวเองที่ iLaw</p>

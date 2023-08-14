@@ -56,7 +56,7 @@
                 <img class="mx-auto" src="/register-form.svg" alt="register-form" />
             </div>
             <div class="border-t grid gap-2 py-5">
-                <p class="heading-03">3. ส่งเอกสารรวบรวมรายชื่อมายังสำนักงาน iLaw ภายในเวลา 20.00 น. ของวันที่ 20 สิงหาคม 2566</p>
+                <p class="heading-03">3. ส่งเอกสารรวบรวมรายชื่อมายังสำนักงาน iLaw</p>
                 <div class="grid gap-1">
                     <p>3.1. นำส่งด้วยตัวเองที่ iLaw</p>
                     <a href="https://goo.gl/maps/PM5nXuVFUv5GCUZw7" class="link px-6 py-2 text-center text-accent font-bold  heading-03 ">ดูแผนที่</a>
