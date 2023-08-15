@@ -1,7 +1,7 @@
 <script lang="ts"></script>
 
 <div>
-	<h1 class="heading-responsive-03 text-center">อาสาตั้งโต๊ะเข้าชื่อ</h1>
+	<h1 class="heading-responsive-03 text-center">อาสาล่ารายชื่อ</h1>
 	<div class="mt-[24px]">
 		<div class="grid gap-[8px]">
 			<ol class="list-[auto]" type="1">
