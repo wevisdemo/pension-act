@@ -218,7 +218,11 @@
 					name="consent"
 					class="checkbox checkbox-primary"
 				/>
-				<span class="label-text">ข้าพเจ้ายินยอมลงชื่อ</span>
+				<span class="label-text"
+					>ข้าพเจ้ายินยอมลงชื่อ <a href="/privacy-policy" class="underline"
+						>อ่านนโยบายการคุ้มครองข้อมูลส่วนบุคคล</a
+					></span
+				>
 			</label>
 		</div>
 		<button
