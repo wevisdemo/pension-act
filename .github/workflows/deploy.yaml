@@ -27,6 +27,7 @@ jobs:
         run: yarn build
         env:
           PUBLIC_FIREBASE_CONFIG: ${{ secrets.PUBLIC_FIREBASE_CONFIG }}
+          PUBLIC_FIREBASE_ADMIN: ${{ secrets.PUBLIC_FIREBASE_ADMIN }}
       - name: Deploy to Github Page
         uses: peaceiris/actions-gh-pages@v3
         with:
