@@ -7,8 +7,10 @@ import Partner from '../components/partner.svelte';
 import Petition from '../components/petition.svelte';
 import Navbar from '../components/navbar.svelte';
 import { countSubmittedDocuments } from '../utils/firebase';
+import { OFFLINE_DOCUMENTS_COUNT } from '../constants/count';
 
-const documentCount = await countSubmittedDocuments();
+const documentCount =
+	(await countSubmittedDocuments()) + OFFLINE_DOCUMENTS_COUNT;
 ---
 
 <script>
