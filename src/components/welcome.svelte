@@ -1,6 +1,7 @@
-<script lang="ts">
-	import { countSubmitedDocuments } from '../utils/firebase';
+<script>
 	import SocialGroup from './social-group.svelte';
+
+	export let documentCount = 0;
 </script>
 
 <div class="flex flex-col md:flex-row">
@@ -24,18 +25,12 @@
 		<div
 			class="rounded-full text-base-100 flex flex-row justify-center items-center space-x-2 bg-primary-focus h-12 body-01-normal"
 		>
-			{#await countSubmitedDocuments()}
-				กำลังโหลด...
-			{:then count}
-				<span class="mt-1">ลงชื่อแล้ว</span>
-				<span class="heading-responsive-03"
-					>{new Intl.NumberFormat('th-TH', {
-						maximumSignificantDigits: 3,
-					}).format(count)}+</span
-				>
-			{:catch}
-				ไม่สามารถโหลดจำนวนผู้ลงชื่อได้ในขนะนี้
-			{/await}
+			<span class="mt-1">ลงชื่อแล้ว</span>
+			<span class="heading-responsive-03"
+				>{new Intl.NumberFormat('th-TH', {
+					maximumSignificantDigits: 3,
+				}).format(documentCount)}+</span
+			>
 		</div>
 		<div class="mt-3">
 			<a href="#petition" class="btn btn-block font-minimal text-[26px]">

@@ -6,6 +6,9 @@ import TableRegister from '../components/table-register.svelte';
 import Partner from '../components/partner.svelte';
 import Petition from '../components/petition.svelte';
 import Navbar from '../components/navbar.svelte';
+import { countSubmittedDocuments } from '../utils/firebase';
+
+const documentCount = await countSubmittedDocuments();
 ---
 
 <script>
@@ -39,7 +42,7 @@ import Navbar from '../components/navbar.svelte';
 			id="welcome"
 			class="bg-primary min-h-screen flex justify-center items-center relative"
 		>
-			<Welcome />
+			<Welcome documentCount={documentCount} />
 		</section>
 
 		<section id="nav" class="bg-primary p-0 w-screen fixed top-0 z-50">
