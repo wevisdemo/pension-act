@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { countSubmitedDocuments } from '../utils/firebase';
 	import SocialGroup from './social-group.svelte';
 </script>
 
@@ -12,15 +13,31 @@
 		<p
 			class="heading-responsive-01 text-info flex flex-col justify-center items-center"
 		>
-			<span> “เสนอคำถามประชามติ </span>
-			<span> สู่รัฐธรรมนูญใหม่” </span>
+			<span>"เสนอคำถามประชามติ</span>
+			<span>สู่รัฐธรรมนูญใหม่"</span>
 		</p>
 	</div>
 	<div class="text-center mt-[12px] md:mt-[0px] md:ml-[48px] grid gap-[12px]">
 		<div>
 			<h2 class="heading-responsive-02 text-base-100">ต้องการ 50,000 ชื่อ</h2>
 		</div>
-		<div>
+		<div
+			class="rounded-full text-base-100 flex flex-row justify-center items-center space-x-2 bg-primary-focus h-12 body-01-normal"
+		>
+			{#await countSubmitedDocuments()}
+				กำลังโหลด...
+			{:then count}
+				<span class="mt-1">ลงชื่อแล้ว</span>
+				<span class="heading-responsive-03"
+					>{new Intl.NumberFormat('th-TH', {
+						maximumSignificantDigits: 3,
+					}).format(count)}+</span
+				>
+			{:catch}
+				ไม่สามารถโหลดจำนวนผู้ลงชื่อได้ในขนะนี้
+			{/await}
+		</div>
+		<div class="mt-3">
 			<a href="#petition" class="btn btn-block font-minimal text-[26px]">
 				ลงชื่อเลย
 				<img src="/icons/pen.svg" alt="icon-pen" />

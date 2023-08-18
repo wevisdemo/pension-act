@@ -12,13 +12,17 @@ import {
 	serverTimestamp,
 	writeBatch,
 	doc,
-} from 'firebase/firestore/lite';
+	query,
+	where,
+	getCountFromServer,
+} from 'firebase/firestore';
 import { parse } from 'valibot';
 import { firebaseConfigSchema } from '../models/firebase-config';
-import type { Document } from '../models/document';
+import { PERSONALID_KEY, type Document } from '../models/document';
 
 const FIRESTORE_DOCUMENT_COLLECTION = 'documents';
 const FIRESTORE_USER_COLLECTION = 'users';
+const IGNORED_PERSONALID = '1111111111111';
 
 const firebaseConfig = parse(
 	firebaseConfigSchema,
@@ -58,4 +62,14 @@ export const submitDocument = async (document: Document) => {
 	batch.set(userRef, { timestamp: serverTimestamp() }, { merge: true });
 
 	return batch.commit();
+};
+query;
+export const countSubmitedDocuments = async (): Promise<number> => {
+	const q = query(
+		collection(firestore, FIRESTORE_DOCUMENT_COLLECTION),
+		where(PERSONALID_KEY, '!=', IGNORED_PERSONALID),
+	);
+	const snapshot = await getCountFromServer(q);
+
+	return snapshot.data().count;
 };
