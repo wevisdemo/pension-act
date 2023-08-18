@@ -32,6 +32,11 @@
 				}).format(documentCount)}+</span
 			>
 		</div>
+		<div class="body-01-normal text-base-100 opacity-50">
+			อัปเดตข้อมูล {new Date().toLocaleDateString('TH-th', {
+				dateStyle: 'medium',
+			})}
+		</div>
 		<div class="mt-3">
 			<a href="#petition" class="btn btn-block font-minimal text-[26px]">
 				ลงชื่อเลย
