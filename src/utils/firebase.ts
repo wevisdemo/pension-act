@@ -5,6 +5,7 @@ import {
 	getAuth,
 	onAuthStateChanged,
 	signInAnonymously,
+	signInWithEmailAndPassword,
 } from 'firebase/auth';
 import {
 	getFirestore,
@@ -26,7 +27,7 @@ const IGNORED_PERSONALID = '1111111111111';
 
 const firebaseConfig = parse(
 	firebaseConfigSchema,
-	JSON.parse(import.meta.env.PUBLIC_FIREBASE_CONFIG ?? ''),
+	JSON.parse(import.meta.env.PUBLIC_FIREBASE_CONFIG ?? '{}'),
 );
 
 const app = initializeApp(firebaseConfig);
@@ -63,13 +64,25 @@ export const submitDocument = async (document: Document) => {
 
 	return batch.commit();
 };
-query;
-export const countSubmitedDocuments = async (): Promise<number> => {
-	const q = query(
-		collection(firestore, FIRESTORE_DOCUMENT_COLLECTION),
-		where(PERSONALID_KEY, '!=', IGNORED_PERSONALID),
-	);
-	const snapshot = await getCountFromServer(q);
 
-	return snapshot.data().count;
+export const countSubmittedDocuments = async (): Promise<number> => {
+	try {
+		const [email, password] = (
+			import.meta.env.PUBLIC_FIREBASE_ADMIN ?? ','
+		).split(',');
+
+		await signInWithEmailAndPassword(auth, email, password);
+
+		const q = query(
+			collection(firestore, FIRESTORE_DOCUMENT_COLLECTION),
+			where(PERSONALID_KEY, '!=', IGNORED_PERSONALID),
+		);
+
+		const snapshot = await getCountFromServer(q);
+
+		return snapshot.data().count;
+	} catch (e) {
+		console.warn(e);
+		return 0;
+	}
 };
