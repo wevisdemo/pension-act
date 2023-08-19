@@ -14,7 +14,7 @@
 
 <div class="text-center grid gap-3 body-02-normal">
 	<h3 class="heading-responsive-03">ร่วมลงชื่อ</h3>
-	<p>*ผู้มีสิทธิเข้าชื่อต้องอายุ 18 ปีขึ้นไป นับจากวันที่ 20 ส.ค. 2563</p>
+	<p>*ผู้มีสิทธิเข้าชื่อต้องอายุ 18 ปีขึ้นไป นับจากวันที่ 20 ส.ค. 2566</p>
 	<div class="join w-full">
 		<button
 			class="btn join-item flex-1 heading-03 gap-1 py-2 px-6 {petitionByHardPaper
