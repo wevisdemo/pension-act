@@ -1,1 +1,1 @@
-export const OFFLINE_DOCUMENTS_COUNT = 1400;
+export const OFFLINE_DOCUMENTS_COUNT = 3700;
