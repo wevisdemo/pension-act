@@ -1,4 +1,4 @@
-name: Deploy to Github Page
+name: Deploy Web to Github Page
 
 on:
   push:
@@ -23,8 +23,8 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn
-      - name: Build
-        run: yarn build
+      - name: Build web
+        run: cd web && yarn build && cd ..
         env:
           PUBLIC_FIREBASE_CONFIG: ${{ secrets.PUBLIC_FIREBASE_CONFIG }}
           PUBLIC_FIREBASE_ADMIN: ${{ secrets.PUBLIC_FIREBASE_ADMIN }}
@@ -32,5 +32,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./web/dist
           cname: conforall.com

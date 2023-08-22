@@ -18,12 +18,16 @@ import {
 	getCountFromServer,
 } from 'firebase/firestore';
 import { parse } from 'valibot';
-import { firebaseConfigSchema } from '../models/firebase-config';
-import { PERSONALID_KEY, type Document } from '../models/document';
-
-const FIRESTORE_DOCUMENT_COLLECTION = 'documents';
-const FIRESTORE_USER_COLLECTION = 'users';
-const IGNORED_PERSONALID = '1111111111111';
+import {
+	firebaseConfigSchema,
+	PERSONALID_KEY,
+	type Document,
+} from '@conforall/models';
+import {
+	FIRESTORE_DOCUMENT_COLLECTION,
+	FIRESTORE_USER_COLLECTION,
+	IGNORED_PERSONALID,
+} from '@conforall/constants';
 
 const firebaseConfig = parse(
 	firebaseConfigSchema,

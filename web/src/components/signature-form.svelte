@@ -4,7 +4,7 @@
 	import { reporter, ValidationMessage } from '@felte/reporter-svelte';
 	import { flatten, parse, ValiError } from 'valibot';
 	import SignaturePad from 'signature_pad';
-	import { documentSchema } from '../models/document';
+	import { documentSchema } from '@conforall/models';
 	import { submitDocument } from '../utils/firebase';
 
 	let signatureCanvas: HTMLCanvasElement;
