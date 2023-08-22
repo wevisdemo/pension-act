@@ -21,6 +21,7 @@
 	<div class="text-center mt-[12px] md:mt-[0px] md:ml-[48px] grid gap-[12px]">
 		<div>
 			<h2 class="heading-responsive-02 text-base-100">ต้องการ 50,000 ชื่อ</h2>
+			<h2 class="heading-responsive-02 text-base-100">ภายใน 26 ส.ค.🔥</h2>
 		</div>
 		<div
 			class="rounded-full text-base-100 flex flex-row justify-center items-center space-x-2 bg-primary-focus h-12 body-01-normal"
@@ -32,6 +33,10 @@
 				}).format(documentCount)}+</span
 			>
 		</div>
+		<p class="heading-01 text-info">
+			กกต. ไม่รับอีก <span class="heading-responsive-03">4x,xxx</span> ที่ลงแบบออนไลน์
+			ไปลงใหม่ด่วน!
+		</p>
 		<div class="body-01-normal text-base-100 opacity-50">
 			อัปเดตข้อมูล {new Date().toLocaleDateString('TH-th', {
 				dateStyle: 'medium',
@@ -39,7 +44,7 @@
 		</div>
 		<div class="mt-3">
 			<a href="#petition" class="btn btn-block font-minimal text-[26px]">
-				ลงชื่อเลย
+				ลงชื่อแบบกระดาษ
 				<img src="/icons/pen.svg" alt="icon-pen" />
 			</a>
 			<a

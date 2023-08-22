@@ -51,7 +51,9 @@
 		<div class="grid gap-[8px]">
 			<ol class="list-[auto]" type="1">
 				<li value="3" class="font-minimal text-[24px] leading-[24px] ml-[20px]">
-					ส่งเอกสารรวบรวมรายชื่อมายังสำนักงาน iLaw
+					ส่งเอกสารรวบรวมรายชื่อมายังสำนักงาน iLaw <span class="text-[#FF0202]"
+						>ภายในวันที่ 25 ส.ค.</span
+					>
 				</li>
 			</ol>
 			<p>3.1. นำส่งด้วยตัวเองที่ iLaw</p>
