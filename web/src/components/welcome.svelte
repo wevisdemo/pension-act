@@ -27,11 +27,12 @@
 			class="rounded-full text-base-100 flex flex-row justify-center items-center space-x-2 bg-primary-focus h-12 body-01-normal"
 		>
 			<span class="mt-1">ลงชื่อแล้ว</span>
-			<span class="heading-responsive-03"
+			<!-- <span class="heading-responsive-03"
 				>{new Intl.NumberFormat('th-TH', {
 					maximumSignificantDigits: 3,
 				}).format(documentCount)}+</span
-			>
+			> -->
+			<span class="heading-responsive-03">10,000+</span>
 		</div>
 		<p class="heading-01 text-info">
 			กกต. ไม่รับอีก <span class="heading-responsive-03">4x,xxx</span> ที่ลงแบบออนไลน์

@@ -12,9 +12,9 @@
 		<SocialGroup url="https://conforall.com" />
 	</div>
 	<div class="max-w-[158px] md:max-w-[240px] flex-1">
-		<a href="#petition">
+		<a href="/locations">
 			<button class="btn btn-block heading-03 font-bold"
-				>ลงชื่อเลย
+				>ดูสถานที่ลงชื่อ
 				<img src="/icons/pen.svg" alt="icon-pen" />
 			</button>
 		</a>
