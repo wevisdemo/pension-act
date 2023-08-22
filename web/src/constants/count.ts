@@ -1,1 +1,0 @@
-export const OFFLINE_DOCUMENTS_COUNT = 6700;

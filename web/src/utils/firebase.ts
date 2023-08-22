@@ -23,10 +23,11 @@ import {
 	PERSONALID_KEY,
 	type Document,
 } from '@conforall/models';
-
-const FIRESTORE_DOCUMENT_COLLECTION = 'documents';
-const FIRESTORE_USER_COLLECTION = 'users';
-const IGNORED_PERSONALID = '1111111111111';
+import {
+	FIRESTORE_DOCUMENT_COLLECTION,
+	FIRESTORE_USER_COLLECTION,
+	IGNORED_PERSONALID,
+} from '@conforall/constants';
 
 const firebaseConfig = parse(
 	firebaseConfigSchema,

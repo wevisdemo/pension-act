@@ -7,6 +7,7 @@
 		"format": "prettier -u --write ."
 	},
 	"workspaces": [
+		"constants",
 		"models",
 		"web"
 	],
