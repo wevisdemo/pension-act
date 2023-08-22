@@ -1,0 +1,32 @@
+{
+	"name": "@conforall/web",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/partytown": "^1.2.3",
+		"@astrojs/svelte": "^3.1.0",
+		"@astrojs/tailwind": "^4.0.0",
+		"@conforall/models": "*",
+		"@felte/reporter-svelte": "^1.1.10",
+		"astro": "^2.10.4",
+		"d3-fetch": "^3.0.1",
+		"felte": "^1.2.11",
+		"firebase": "^10.1.0",
+		"signature_pad": "^4.1.6",
+		"svelte": "^4.0.0",
+		"tailwindcss": "^3.0.24",
+		"valibot": "^0.11.1"
+	},
+	"devDependencies": {
+		"@types/d3-fetch": "^3.0.2",
+		"@typescript-eslint/parser": "^6.3.0",
+		"daisyui": "^3.5.1"
+	}
+}
