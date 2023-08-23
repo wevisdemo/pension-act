@@ -1,6 +1,7 @@
 {
 	"name": "@conforall/workspace",
 	"private": true,
+	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
 		"prepare": "husky install",
@@ -9,6 +10,7 @@
 	"workspaces": [
 		"constants",
 		"models",
+		"preprocessor",
 		"web"
 	],
 	"lint-staged": {

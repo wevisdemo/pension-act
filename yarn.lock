@@ -498,6 +498,20 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
+"@digitak/esrun@^3.2.24":
+  version "3.2.24"
+  resolved "https://registry.yarnpkg.com/@digitak/esrun/-/esrun-3.2.24.tgz#711972b2eec7bc51685315e5f4d11a4e15f7546e"
+  integrity sha512-HvD1eSuZVBaFZpKU/kl2rzDELCAbAnrFO2in855IrX15Zji4sdrekiEQph+eq5W5xjCyc254zx/Bh8RM2216mg==
+  dependencies:
+    "@digitak/grubber" "^3.1.4"
+    chokidar "^3.5.1"
+    esbuild "^0.17.4"
+
+"@digitak/grubber@^3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@digitak/grubber/-/grubber-3.1.4.tgz#f29280bc8d205995b6bf4d73344f08b01f21fc65"
+  integrity sha512-pqsnp2BUYlDoTXWG34HWgEJse/Eo1okRgNex8IG84wHrJp8h3SakeR5WhB4VxSA2+/D+frNYJ0ch3yXzsfNDoA==
+
 "@emmetio/abbreviation@^2.3.3":
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/@emmetio/abbreviation/-/abbreviation-2.3.3.tgz#ed2b88fe37b972292d6026c7c540aaf887cecb6e"
@@ -1919,7 +1933,7 @@ character-entities@^2.0.0:
   resolved "https://registry.yarnpkg.com/character-entities/-/character-entities-2.0.2.tgz#2d09c2e72cd9523076ccb21157dff66ad43fcc22"
   integrity sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ==
 
-chokidar@^3.5.3:
+chokidar@^3.5.1, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
   integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
@@ -2288,6 +2302,11 @@ dot-prop@^5.1.0:
   dependencies:
     is-obj "^2.0.0"
 
+dotenv@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.1.tgz#369034de7d7e5b120972693352a3bf112172cc3e"
+  integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
+
 dset@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/dset/-/dset-3.1.2.tgz#89c436ca6450398396dc6538ea00abc0c54cd45a"
@@ -2333,7 +2352,7 @@ es-module-lexer@^1.3.0:
   resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-1.3.0.tgz#6be9c9e0b4543a60cd166ff6f8b4e9dae0b0c16f"
   integrity sha512-vZK7T0N2CBmBOixhmjdqx2gWVbFZ4DXZ/NyRMZVlJXPa7CyFS+/a4QQsDGDQy9ZfEzxFuNEsMLeQJnKP2p5/JA==
 
-esbuild@^0.17.19:
+esbuild@^0.17.19, esbuild@^0.17.4:
   version "0.17.19"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.17.19.tgz#087a727e98299f0462a3d0bcdd9cd7ff100bd955"
   integrity sha512-XQ0jAPFkK/u3LcVRcvVHQcTIqD6E2H1fvZMA5dQPSOWb3suUbWbfbRf94pjc0bNzRYLfIrDRQXr7X+LHIm5oHw==
@@ -2566,7 +2585,7 @@ find-yarn-workspace-root2@1.2.16:
     micromatch "^4.0.2"
     pkg-dir "^4.2.0"
 
-firebase@^10.1.0:
+firebase@^10.1.0, firebase@^10.2.0:
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-10.2.0.tgz#c19d5a2b80b1104519aa914a24e63db8270ff7a4"
   integrity sha512-pmegHB73xrZFNR02nvBxLbxM5+9Z0njimf+7uCjjEDVW7ZNdhhTgFpB0qecqpJ5uGKy6Tkavzc8LfcGkNpPgjg==
@@ -5020,7 +5039,7 @@ ts-interface-checker@^0.1.9:
   resolved "https://registry.yarnpkg.com/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz#784fd3d679722bc103b1b4b8030bcddb5db2a699"
   integrity sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
 
-ts-node@^10.8.1:
+ts-node@^10.8.1, ts-node@^10.9.1:
   version "10.9.1"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-10.9.1.tgz#e73de9102958af9e1f0b168a6ff320e25adcff4b"
   integrity sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==
