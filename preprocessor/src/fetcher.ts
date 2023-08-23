@@ -7,6 +7,8 @@ import {
 	query,
 	where,
 	getDocs,
+	limit,
+	startAt,
 } from 'firebase/firestore';
 import { parse } from 'valibot';
 import { firebaseConfigSchema, PERSONALID_KEY } from '@conforall/models';
@@ -17,6 +19,7 @@ import {
 import { writeFileSync } from 'fs';
 
 const OUTPUT_FILE = 'raw.json';
+const PAGE_LIMIT = 1000;
 
 const firebaseConfig = parse(
 	firebaseConfigSchema,
@@ -36,14 +39,30 @@ const auth = getAuth();
 
 	console.log('Logged in as admin.');
 
-	const documents = await getDocs(
-		query(
-			collection(firestore, FIRESTORE_DOCUMENT_COLLECTION),
-			where(PERSONALID_KEY, '!=', IGNORED_PERSONALID),
-		),
-	);
+	const documents: unknown[] = [];
+	let isCompleted = false;
 
-	console.log(`${documents.size} documents found.`);
+	do {
+		const res = await getDocs(
+			query(
+				collection(firestore, FIRESTORE_DOCUMENT_COLLECTION),
+				where(PERSONALID_KEY, '!=', IGNORED_PERSONALID),
+				limit(PAGE_LIMIT),
+				startAt(documents.length),
+			),
+		);
+
+		console.log(
+			`Documents number ${documents.length}-${
+				documents.length + res.size
+			} are retrieved.`,
+		);
+
+		documents.push(...res.docs);
+		isCompleted = res.size < PAGE_LIMIT;
+	} while (!isCompleted);
+
+	console.log(`Total ${documents.length} documents found.`);
 
 	writeFileSync(OUTPUT_FILE, JSON.stringify(documents));
 
