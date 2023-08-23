@@ -31,7 +31,10 @@
 				เลขบัตรประชาชน และเซ็น
 			</p>
 			<img class="mx-auto" src="/register-form.svg" alt="register-form" />
-			<a target="_blank" href="https://pin.ski/3Qtz6l3">
+			<a
+				target="_blank"
+				href="https://drive.google.com/file/d/1M1VQsUMyw0u7ZmfWHobKirvD1TRBsRXG/view"
+			>
 				<button
 					class="btn btn-block btn-primary text-[24px] leading-[24px] font-minimal"
 					>ดาวน์โหลดแบบฟอร์ม

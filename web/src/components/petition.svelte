@@ -36,7 +36,7 @@
 			<p class="heading-03">1. ดาวน์โหลดแบบฟอร์ม และพิมพ์ลงกระดาษ A4</p>
 			<a
 				target="_blank"
-				href="https://pin.ski/3Qtz6l3"
+				href="https://drive.google.com/file/d/1M1VQsUMyw0u7ZmfWHobKirvD1TRBsRXG/view"
 				class="btn btn-block btn-primary text-[16px] normal-case heading-03 text-base-100"
 			>
 				ดาวน์โหลดแบบฟอร์ม
