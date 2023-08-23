@@ -8,7 +8,8 @@ import {
 	where,
 	getDocs,
 	limit,
-	startAt,
+	orderBy,
+	startAfter,
 } from 'firebase/firestore';
 import { parse } from 'valibot';
 import { firebaseConfigSchema, PERSONALID_KEY } from '@conforall/models';
@@ -18,7 +19,7 @@ import {
 } from '@conforall/constants';
 import { writeFileSync } from 'fs';
 
-const OUTPUT_FILE = 'raw.json';
+const OUTPUT_DIR = 'out';
 const PAGE_LIMIT = 1000;
 
 const firebaseConfig = parse(
@@ -39,34 +40,41 @@ const auth = getAuth();
 
 	console.log('Logged in as admin.');
 
-	const documents: unknown[] = [];
+	let lastPersonalid: string = '';
+	let batchCount = 1;
 	let isCompleted = false;
 
 	do {
+		const documents: unknown[] = [];
+
 		const res = await getDocs(
 			query(
 				collection(firestore, FIRESTORE_DOCUMENT_COLLECTION),
 				where(PERSONALID_KEY, '!=', IGNORED_PERSONALID),
+				orderBy(PERSONALID_KEY),
 				limit(PAGE_LIMIT),
-				startAt(documents.length),
+				...(lastPersonalid ? [startAfter(lastPersonalid)] : []),
 			),
 		);
 
+		lastPersonalid = res.docs[res.size - 1].get(PERSONALID_KEY);
+
 		console.log(
-			`Documents number ${documents.length}-${
-				documents.length + res.size
-			} are retrieved.`,
+			`Batch ${batchCount}: ${res.docs[0].get(
+				PERSONALID_KEY,
+			)} - ${lastPersonalid} (${res.size}) are retrieved.`,
 		);
 
-		documents.push(...res.docs);
+		res.forEach((doc) => documents.push(doc.data()));
+
+		writeFileSync(
+			`${OUTPUT_DIR}/raw-${batchCount}.json`,
+			JSON.stringify(documents),
+		);
+
+		batchCount++;
 		isCompleted = res.size < PAGE_LIMIT;
 	} while (!isCompleted);
-
-	console.log(`Total ${documents.length} documents found.`);
-
-	writeFileSync(OUTPUT_FILE, JSON.stringify(documents));
-
-	console.log(`Output is written to ${OUTPUT_FILE}`);
 
 	process.exit(0);
 })();
