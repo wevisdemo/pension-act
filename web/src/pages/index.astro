@@ -6,11 +6,7 @@ import TableRegister from '../components/table-register.svelte';
 import Partner from '../components/partner.svelte';
 import Petition from '../components/petition.svelte';
 import Navbar from '../components/navbar.svelte';
-import { countSubmittedDocuments } from '../utils/firebase';
 import { OFFLINE_DOCUMENTS_COUNT } from '@conforall/constants';
-
-const documentCount =
-	(await countSubmittedDocuments()) + OFFLINE_DOCUMENTS_COUNT;
 ---
 
 <script>
@@ -44,7 +40,7 @@ const documentCount =
 			id="welcome"
 			class="bg-primary min-h-screen flex justify-center items-center relative"
 		>
-			<Welcome documentCount={documentCount} />
+			<Welcome documentCount={OFFLINE_DOCUMENTS_COUNT} />
 		</section>
 
 		<section id="nav" class="bg-primary p-0 w-screen fixed top-0 z-50">
