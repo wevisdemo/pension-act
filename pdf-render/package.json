@@ -1,0 +1,15 @@
+{
+	"name": "@conforall/pdf-render",
+	"version": "0.0.1",
+	"main": "src/index.ts",
+	"scripts": {
+		"start": "ts-node src/index.ts"
+	},
+	"dependencies": {
+		"@pdf-lib/fontkit": "^1.1.1",
+		"arquero": "^5.2.0",
+		"csv-parse": "^5.4.1",
+		"pdf-lib": "^1.17.1",
+		"ts-node": "^10.9.1"
+	}
+}
