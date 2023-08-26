@@ -9,7 +9,7 @@ import Navbar from '../components/navbar.svelte';
 import { OFFLINE_DOCUMENTS_COUNT } from '@conforall/constants';
 ---
 
-<script>
+<!-- <script>
 	const handleIntersection: IntersectionObserverCallback = (entries) => {
 		entries.forEach((entry) => {
 			const nav = document.getElementById('nav');
@@ -32,8 +32,7 @@ import { OFFLINE_DOCUMENTS_COUNT } from '@conforall/constants';
 		const observer = new IntersectionObserver(handleIntersection);
 		observer.observe(welcome);
 	}
-</script>
-
+</script> -->
 <Main>
 	<div class="flex flex-col justify-center items-center pb-[60px] md:pb-[80px]">
 		<section
@@ -43,21 +42,21 @@ import { OFFLINE_DOCUMENTS_COUNT } from '@conforall/constants';
 			<Welcome documentCount={OFFLINE_DOCUMENTS_COUNT} />
 		</section>
 
-		<section id="nav" class="bg-primary p-0 w-screen fixed top-0 z-50">
+		<!-- <section id="nav" class="bg-primary p-0 w-screen fixed top-0 z-50">
 			<Navbar />
-		</section>
+		</section> -->
 
 		<section id="event-reasons" class="bg-[#F8EB54]">
 			<EventReason client:load />
 		</section>
 
-		<section id="petition" class="bg-secondary-focus">
+		<!-- <section id="petition" class="bg-secondary-focus">
 			<Petition client:load />
 		</section>
 
 		<section id="table-register">
 			<TableRegister />
-		</section>
+		</section> -->
 
 		<section class="bg-base-200">
 			<Partner />

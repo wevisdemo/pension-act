@@ -29,7 +29,7 @@
 			<span class="mt-1">ลงชื่อแล้ว</span>
 			<span class="heading-responsive-03"
 				>{new Intl.NumberFormat('th-TH', {
-					maximumSignificantDigits: 3,
+					maximumSignificantDigits: 4,
 				}).format(documentCount)}+</span
 			>
 		</div>
@@ -37,19 +37,23 @@
 			กกต. ไม่รับอีก <span class="heading-responsive-03">53,273</span> ที่ลงแบบออนไลน์
 			ไปลงใหม่ด่วน!
 		</p>
-		<div class="body-01-normal text-base-100 opacity-50">
+		<div class="body-01-normal text-base-100 opacity-20">
 			อัปเดตข้อมูล {new Date().toLocaleDateString('TH-th', {
 				dateStyle: 'medium',
 			})}
 		</div>
-		<div class="mt-3">
-			<a href="#petition" class="btn btn-block font-minimal text-[26px]">
+		<div class="mt-3 relative">
+			<div
+				class="absolute inset-0 bg-white flex items-center justify-center text-base-100 z-20"
+			>
+				<p class="rotate-[-30deg] font-minimal text-[26px]">ปิดรับลงชื่อแล้ว</p>
+			</div>
+			<div class="btn btn-block font-minimal text-[26px] opacity-50">
 				ลงชื่อแบบกระดาษ
 				<img src="/icons/pen.svg" alt="icon-pen" />
-			</a>
-			<a
-				href="/locations"
-				class="btn btn-block btn-secondary font-minimal text-[26px] mt-[4px]"
+			</div>
+			<div
+				class="btn btn-block btn-secondary font-minimal text-[26px] mt-[4px] opacity-20"
 			>
 				ดูสถานที่ลงชื่อ
 				<svg
@@ -64,13 +68,13 @@
 						fill="black"
 					/>
 				</svg>
-			</a>
-			<a
-				href="#table-register"
-				class="btn btn-block btn-secondary font-minimal text-[26px] mt-[4px]"
-				>อาสาล่ารายชื่อ
+			</div>
+			<div
+				class="btn btn-block btn-secondary font-minimal text-[26px] mt-[4px] opacity-20"
+			>
+				อาสาล่ารายชื่อ
 				<img src="/icons/table.svg" alt="icon-table" />
-			</a>
+			</div>
 		</div>
 		<a
 			class="text-decoration-line: underline font-minimal text-[26px] text-info"
