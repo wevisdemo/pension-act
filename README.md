@@ -18,7 +18,8 @@
 The project required the following env:
 
 ```env
-PUBLIC_FIREBASE_CONFIG = <Firebase Config in JSON format>
+PUBLIC_FIREBASE_CONFIG=<firebase_config_in_json_format>
+PUBLIC_FIREBASE_ADMIN=<admin_email>,<admin_password>
 ```
 
 ## Shared resources
