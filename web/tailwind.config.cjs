@@ -8,7 +8,7 @@ const pension_act = {
 	neutral: '#1D1F43',
 	'base-100': '#FFFFFF',
 	'base-200': '#FFF1EE',
-	'base-300': '#E5E6E6',
+	'base-300': '#FFD3C9',
 	info: '#ABC4FB',
 };
 

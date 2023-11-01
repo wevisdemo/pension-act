@@ -43,13 +43,13 @@
 }
 
 .heading-responsive-01 {
-	@apply font-minimal text-[26px] md:text-[32px] leading-[26px] md:leading-[32px] font-bold;
+	@apply text-[21px] md:text-[28px] leading-[29px] md:leading-[39px] font-bold;
 }
 
 .heading-responsive-02 {
-	@apply font-minimal text-[36px] md:text-[46px] leading-[36px] md:leading-[46px] font-bold;
+	@apply text-[28px] md:text-[36px] leading-[39px] md:leading-[50px] font-bold;
 }
 
 .heading-responsive-03 {
-	@apply font-minimal text-[42px] md:text-[54px] leading-[42px] md:leading-[54px] font-bold;
+	@apply text-[36px] md:text-[44px] leading-[50px] md:leading-[62px] font-bold;
 }
