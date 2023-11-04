@@ -28,8 +28,9 @@
 		class="md:max-w-[360px] max-w-[280px]"
 	/>
 	<p class="body-02-semibold text-neutral">เราต้องการอย่างน้อย 10,000 ชื่อ</p>
-	<p class="highlight body-02-semibold text-primary">
-		ลงชื่อแล้ว <span class="heading-responsive-03">{documentCount}</span>
+	<p class="highlight body-02-semibold text-primary flex items-center">
+		ลงชื่อแล้ว<span class="heading-responsive-03 ml-[6px]">{documentCount}</span
+		>
 	</p>
 	<p class="body-01-normal text-neutral opacity-50">
 		อัปเดตข้อมูล {new Date().toLocaleDateString('TH-th', {
@@ -37,7 +38,7 @@
 		})}
 	</p>
 	<div
-		class="btn btn-block bg-primary hover:bg-primary-focus text-body-03-semibold text-base-100"
+		class="btn btn-block bg-primary hover:bg-primary-focus text-body-03-semibold text-base-100 md:w-[85vw] md:max-w-[450px]"
 	>
 		ลงชื่อเลย
 		<img src="/icons/pen.svg" alt="icon-pen" fill="#FFD3C9" />
