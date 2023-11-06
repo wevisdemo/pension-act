@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { createForm } from 'felte';
 	import { reporter, ValidationMessage } from '@felte/reporter-svelte';
-	import { flatten, parse, ValiError } from 'valibot';
+	import { date, flatten, parse, ValiError } from 'valibot';
 	import SignaturePad from 'signature_pad';
 	import { documentSchema } from '@pension-act/models';
 	import { submitDocument } from '../utils/firebase';
@@ -19,15 +19,40 @@
 		signaturePad.fromData(signaturePad.toData());
 	});
 
-	const dayOptions = [...Array.from({ length: 31 }, (_, i) => i + 1)];
+	let dayOptions = [...Array.from({ length: 31 }, (_, i) => i + 1)];
 
-	const monthOptions = [...Array.from({ length: 12 }, (_, i) => i + 1)];
+	let monthOptions = [...Array.from({ length: 12 }, (_, i) => i + 1)];
 
-	const yearOptions = [
+	let yearOptions = [
 		...Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i),
 	];
 
 	const thisDate = new Date();
+
+	let dateValue = {
+		day: thisDate.getDate(),
+		month: thisDate.getMonth() + 1,
+		year: thisDate.getFullYear(),
+	};
+
+	const setDateOptions = () => {
+		if (dateValue.month === 2) {
+			if (dateValue.year % 4 === 0) {
+				dayOptions = [...Array.from({ length: 29 }, (_, i) => i + 1)];
+			} else {
+				dayOptions = [...Array.from({ length: 28 }, (_, i) => i + 1)];
+			}
+		} else if ([4, 6, 9, 11].includes(dateValue.month)) {
+			dayOptions = [...Array.from({ length: 30 }, (_, i) => i + 1)];
+		} else {
+			dayOptions = [...Array.from({ length: 31 }, (_, i) => i + 1)];
+		}
+		if (!dayOptions.includes(dateValue.day)) {
+			dateValue.day = dayOptions[dayOptions.length - 1];
+		}
+	};
+
+	$: dateValue, setDateOptions();
 
 	const { form, setTouched, setData, data, reset } = createForm({
 		validate(values) {
@@ -41,7 +66,9 @@
 		async onSubmit(values) {
 			isLoading = true;
 			try {
-				console.log(parse(documentSchema, values));
+				values.day = dateValue.day;
+				values.month = dateValue.month;
+				values.year = dateValue.year;
 				await submitDocument(parse(documentSchema, values));
 				successDialog.showModal();
 				clearPad();
@@ -101,6 +128,7 @@
 							? 'input-error'
 							: ''}"
 						disabled={isLoading}
+						bind:value={dateValue.day}
 						name="day"
 					>
 						{#each dayOptions as day}
@@ -121,6 +149,7 @@
 								: ''}"
 							disabled={isLoading}
 							name="month"
+							bind:value={dateValue.month}
 						>
 							{#each monthOptions as month}
 								<option selected={month === thisDate.getMonth() + 1}
@@ -143,6 +172,7 @@
 								: ''}"
 							disabled={isLoading}
 							name="year"
+							bind:value={dateValue.year}
 						>
 							{#each yearOptions as year}
 								<option selected={year === thisDate.getFullYear()}

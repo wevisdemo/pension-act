@@ -2,12 +2,12 @@
 import Main from '../layouts/main.astro';
 import EventReason from '../components/event-reasons.svelte';
 import Welcome from '../components/welcome.svelte';
-import TableRegister from '../components/table-register.svelte';
-import Partner from '../components/partner.svelte';
 import Petition from '../components/petition.svelte';
 import Navbar from '../components/navbar.svelte';
-import { OFFLINE_DOCUMENTS_COUNT } from '@pension-act/constants';
 import Info from '../components/info.svelte';
+import { countSubmittedDocuments } from '../utils/firebase';
+
+let documentCount = await countSubmittedDocuments();
 ---
 
 <script>
@@ -40,7 +40,7 @@ import Info from '../components/info.svelte';
 			id="welcome"
 			class="bg-base-300 min-h-screen flex justify-center items-center relative"
 		>
-			<Welcome documentCount={OFFLINE_DOCUMENTS_COUNT} />
+			<Welcome documentCount={documentCount} />
 		</section>
 
 		<section id="nav" class="bg-primary p-0 w-screen fixed top-0 z-50">

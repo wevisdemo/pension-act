@@ -2,6 +2,7 @@
 import '../styles/fonts.css';
 import '../styles/typography.css';
 import '../styles/global.css';
+import { WEB_URI } from '@pension-act/constants';
 ---
 
 <html lang="en">
@@ -28,7 +29,7 @@ import '../styles/global.css';
 		<script
 			type="text/partytown"
 			defer
-			data-domain="pension-act.com"
+			data-domain={WEB_URI}
 			src="https://analytics.punchup.world/js/plausible.js"></script>
 	</head>
 

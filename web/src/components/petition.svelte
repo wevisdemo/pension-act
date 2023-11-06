@@ -18,7 +18,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="bg-base-100 p-[10px] rounded-[2px]">
+	<div class="bg-base-100 p-[10px] rounded-[4px]">
 		<SignatureForm />
 	</div>
 </div>
