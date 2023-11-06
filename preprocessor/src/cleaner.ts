@@ -1,4 +1,4 @@
-import { Document, PERSONALID_KEY } from '@conforall/models';
+import { Document, PERSONALID_KEY } from '@pension-act/models';
 import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import * as aq from 'arquero';
 
@@ -33,13 +33,13 @@ const cleanData = aq
 	.reify();
 
 writeFileSync(
-	`${OUTPUT_DIR}/conforall-cleaned.csv`,
+	`${OUTPUT_DIR}/pension-act-cleaned.csv`,
 	cleanData.select(PERSONALID_KEY, 'name').print().toCSV(),
 );
 
 for (let i = 0; i * WITH_SIGNATURE_MAX_ROW < cleanData.size; i++) {
 	writeFileSync(
-		`${OUTPUT_DIR}/conforall-cleaned-signature-${i + 1}.csv`,
+		`${OUTPUT_DIR}/pension-act-cleaned-signature-${i + 1}.csv`,
 		cleanData
 			.slice(i * WITH_SIGNATURE_MAX_ROW, (i + 1) * WITH_SIGNATURE_MAX_ROW)
 			.select(PERSONALID_KEY, 'name', 'signature')

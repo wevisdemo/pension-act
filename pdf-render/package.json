@@ -1,5 +1,5 @@
 {
-	"name": "@conforall/pdf-render",
+	"name": "@pension-act/pdf-render",
 	"version": "0.0.1",
 	"main": "src/index.ts",
 	"scripts": {

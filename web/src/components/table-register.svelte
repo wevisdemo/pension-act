@@ -82,7 +82,7 @@
 			<a target="_blank" href="https://lin.ee/LZObBDv">
 				<button
 					class="btn btn-block btn-secondary text-[24px] leading-[24px] font-minimal normal-case"
-					>@conforall
+					>@pension-act
 					<img src="/line-color-logo.svg" alt="line-color-logo" />
 				</button>
 			</a>

@@ -12,11 +12,11 @@ import {
 	startAfter,
 } from 'firebase/firestore';
 import { parse } from 'valibot';
-import { firebaseConfigSchema, PERSONALID_KEY } from '@conforall/models';
+import { firebaseConfigSchema, PERSONALID_KEY } from '@pension-act/models';
 import {
 	FIRESTORE_DOCUMENT_COLLECTION,
 	IGNORED_PERSONALID,
-} from '@conforall/constants';
+} from '@pension-act/constants';
 import { writeFileSync } from 'fs';
 
 const OUTPUT_DIR = 'out';

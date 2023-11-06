@@ -6,11 +6,11 @@ import TableRegister from '../components/table-register.svelte';
 import Partner from '../components/partner.svelte';
 import Petition from '../components/petition.svelte';
 import Navbar from '../components/navbar.svelte';
-import { OFFLINE_DOCUMENTS_COUNT } from '@conforall/constants';
+import { OFFLINE_DOCUMENTS_COUNT } from '@pension-act/constants';
 import Info from '../components/info.svelte';
 ---
 
-<!-- <script>
+<script>
 	const handleIntersection: IntersectionObserverCallback = (entries) => {
 		entries.forEach((entry) => {
 			const nav = document.getElementById('nav');
@@ -33,7 +33,7 @@ import Info from '../components/info.svelte';
 		const observer = new IntersectionObserver(handleIntersection);
 		observer.observe(welcome);
 	}
-</script> -->
+</script>
 <Main>
 	<div class="flex flex-col justify-center items-center pb-[60px] md:pb-[80px]">
 		<section
@@ -43,23 +43,19 @@ import Info from '../components/info.svelte';
 			<Welcome documentCount={OFFLINE_DOCUMENTS_COUNT} />
 		</section>
 
-		<!-- <section id="nav" class="bg-primary p-0 w-screen fixed top-0 z-50">
+		<section id="nav" class="bg-primary p-0 w-screen fixed top-0 z-50">
 			<Navbar />
-		</section> -->
+		</section>
 
 		<section id="event-reasons" class="bg-neutral">
 			<EventReason client:load />
 		</section>
 
-		<!-- <section id="petition" class="bg-secondary-focus">
+		<section id="petition" class="bg-primary">
 			<Petition client:load />
 		</section>
 
-		<section id="table-register">
-			<TableRegister />
-		</section> -->
-
-		<section class="bg-base-100">
+		<section id="about-me" class="bg-base-100">
 			<Info />
 		</section>
 	</div>

@@ -37,12 +37,13 @@
 			dateStyle: 'medium',
 		})}
 	</p>
-	<div
+	<a
+		href="#petition"
 		class="btn btn-block bg-primary hover:bg-primary-focus text-body-03-semibold text-base-100 md:w-[85vw] md:max-w-[450px]"
 	>
 		ลงชื่อเลย
 		<img src="/icons/pen.svg" alt="icon-pen" fill="#FFD3C9" />
-	</div>
+	</a>
 	<SocialGroup />
 </div>
 

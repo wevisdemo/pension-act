@@ -1,5 +1,6 @@
 <script lang="ts">
-	const PROD_URL = encodeURI('https://conforall.com');
+	import { WEB_URI } from '@pension-act/constants';
+	const PROD_URL = encodeURI(WEB_URI);
 </script>
 
 <div class="flex [&>*:not(:first-child)]:ml-[4px] justify-center">

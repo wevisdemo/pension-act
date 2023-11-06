@@ -4,7 +4,7 @@
 	import { reporter, ValidationMessage } from '@felte/reporter-svelte';
 	import { flatten, parse, ValiError } from 'valibot';
 	import SignaturePad from 'signature_pad';
-	import { documentSchema } from '@conforall/models';
+	import { documentSchema } from '@pension-act/models';
 	import { submitDocument } from '../utils/firebase';
 
 	let signatureCanvas: HTMLCanvasElement;
@@ -19,6 +19,16 @@
 		signaturePad.fromData(signaturePad.toData());
 	});
 
+	const dayOptions = [...Array.from({ length: 31 }, (_, i) => i + 1)];
+
+	const monthOptions = [...Array.from({ length: 12 }, (_, i) => i + 1)];
+
+	const yearOptions = [
+		...Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i),
+	];
+
+	const thisDate = new Date();
+
 	const { form, setTouched, setData, data, reset } = createForm({
 		validate(values) {
 			try {
@@ -31,6 +41,7 @@
 		async onSubmit(values) {
 			isLoading = true;
 			try {
+				console.log(parse(documentSchema, values));
 				await submitDocument(parse(documentSchema, values));
 				successDialog.showModal();
 				clearPad();
@@ -59,7 +70,90 @@
 </script>
 
 <form use:form>
-	<div class="form-control w-full">
+	<div class="form-control w-full text-neutral">
+		<ValidationMessage for="location" let:messages>
+			<label class="label" for="location">
+				<span class="label-text heading-03">เขียนที่*</span>
+			</label>
+			<input
+				type="string"
+				name="location"
+				class="input rounded-sm bg-base-200 {messages ? 'input-error' : ''}"
+				disabled={isLoading}
+			/>
+			<div class="label">
+				<span
+					class="label-text-alt {messages
+						? 'text-error'
+						: 'text-neutral opacity-[60%]'}"
+					>ระบุสถานที่กรอกข้อมูลเช่น จังหวัด</span
+				>
+			</div>
+		</ValidationMessage>
+		<div class="flex flex-row space-x-[10px]">
+			<div class="form-control">
+				<ValidationMessage for="day" let:messages>
+					<label class="label" for="day">
+						<span class="label-text heading-03">วันที่ลงชื่อ*</span>
+					</label>
+					<select
+						class="select rounded-sm max-w-xs bg-base-200 {messages
+							? 'input-error'
+							: ''}"
+						disabled={isLoading}
+						name="day"
+					>
+						{#each dayOptions as day}
+							<option selected={day === thisDate.getDate()}>{day}</option>
+						{/each}
+					</select>
+				</ValidationMessage>
+			</div>
+			<div class="flex flex-row space-x-[10px]">
+				<div class="form-control">
+					<ValidationMessage for="month" let:messages>
+						<label class="label" for="month">
+							<span class="label-text heading-03">เดือน*</span>
+						</label>
+						<select
+							class="select rounded-sm max-w-xs bg-base-200 {messages
+								? 'input-error'
+								: ''}"
+							disabled={isLoading}
+							name="month"
+						>
+							{#each monthOptions as month}
+								<option selected={month === thisDate.getMonth() + 1}
+									>{month}</option
+								>
+							{/each}
+						</select>
+					</ValidationMessage>
+				</div>
+			</div>
+			<div class="flex flex-row space-x-[10px]">
+				<div class="form-control">
+					<ValidationMessage for="year" let:messages>
+						<label class="label" for="year">
+							<span class="label-text heading-03"> ปีพ.ศ.*</span>
+						</label>
+						<select
+							class="select rounded-sm max-w-xs bg-base-200 {messages
+								? 'input-error'
+								: ''}"
+							disabled={isLoading}
+							name="year"
+						>
+							{#each yearOptions as year}
+								<option selected={year === thisDate.getFullYear()}
+									>{year}</option
+								>
+							{/each}
+						</select>
+					</ValidationMessage>
+				</div>
+			</div>
+		</div>
 		<ValidationMessage for="personalid" let:messages>
 			<label class="label" for="personalid">
 				<span class="label-text heading-03">เลขประจำตัวประชาชน*</span>
@@ -71,7 +165,10 @@
 				disabled={isLoading}
 			/>
 			<div class="label">
-				<span class="label-text-alt {messages ? 'text-error' : ''}"
+				<span
+					class="label-text-alt {messages
+						? 'text-error'
+						: 'text-neutral opacity-[60%]'}"
 					>ใส่เลขประจำตัวประชาชน 13 หลักไม่ต้องเว้นวรรค</span
 				>
 			</div>
@@ -124,11 +221,55 @@
 				disabled={isLoading}
 			/>
 			<div class="label">
-				<span class="label-text-alt {messages ? 'text-error' : ''}"
-					>ระบุนามสกุลเป็นภาษาไทย</span
+				<span
+					class="label-text-alt {messages
+						? 'text-error'
+						: 'text-neutral opacity-[60%]'}">ระบุนามสกุลเป็นภาษาไทย</span
 				>
 			</div>
 		</ValidationMessage>
+		<ValidationMessage for="email" let:messages>
+			<label class="label" for="email">
+				<span class="label-text heading-03">อีเมล (Optional)</span>
+			</label>
+			<input
+				type="text"
+				name="email"
+				class="input rounded-sm bg-base-200 {messages ? 'input-error' : ''}"
+				disabled={isLoading}
+			/>
+			<div class="label">
+				<span
+					class="label-text-alt {messages
+						? 'text-error'
+						: 'text-neutral opacity-[60%]'}"
+				>
+					E-mail ที่ใช้งานในปัจจุบัน - สำหรับรับเอกสารยืนยันการลงลายมือชื่อ</span
+				>
+			</div>
+		</ValidationMessage>
+		<ValidationMessage for="phone" let:messages>
+			<label class="label" for="phone">
+				<span class="label-text heading-03">เบอร์โทรศัพท์ (Optional)</span>
+			</label>
+			<input
+				type="text"
+				name="phone"
+				class="input rounded-sm bg-base-200 {messages ? 'input-error' : ''}"
+				disabled={isLoading}
+			/>
+			<div class="label">
+				<span
+					class="label-text-alt {messages
+						? 'text-error'
+						: 'text-neutral opacity-[60%]'}"
+				>
+					ระบุเบอร์โทรศัพท์ที่ใช้งานในปัจจุบันสำหรับการอ้างอิง
+					ข้อมูลจะเก็บเป็นความลับ</span
+				>
+			</div>
+		</ValidationMessage>
+
 		<div class="form-control">
 			<div class="label">
 				<span class="label-text heading-03">ลงลายมือชื่อ*</span>
@@ -261,31 +402,31 @@
 				<span class="loading loading-spinner" />
 			{/if}
 		</button>
+
+		<dialog
+			id="success-dialog"
+			bind:this={successDialog}
+			class="modal modal-bottom sm:modal-middle"
+		>
+			<form method="dialog" class="modal-box">
+				<p class="py-4">ลงชื่อสำเร็จ</p>
+				<div class="modal-action">
+					<button class="btn">ปิด</button>
+				</div>
+			</form>
+		</dialog>
+
+		<dialog
+			id="error-dialog"
+			bind:this={errorDialog}
+			class="modal modal-bottom sm:modal-middle"
+		>
+			<form method="dialog" class="modal-box">
+				<p class="py-4">เกิดข้อผิดพลาดในการลงชื่อ โปรดลองลงชื่อใหม่อีกครั้ง</p>
+				<div class="modal-action">
+					<button class="btn">ปิด</button>
+				</div>
+			</form>
+		</dialog>
 	</div>
-
-	<dialog
-		id="success-dialog"
-		bind:this={successDialog}
-		class="modal modal-bottom sm:modal-middle"
-	>
-		<form method="dialog" class="modal-box">
-			<p class="py-4">ลงชื่อสำเร็จ</p>
-			<div class="modal-action">
-				<button class="btn">ปิด</button>
-			</div>
-		</form>
-	</dialog>
-
-	<dialog
-		id="error-dialog"
-		bind:this={errorDialog}
-		class="modal modal-bottom sm:modal-middle"
-	>
-		<form method="dialog" class="modal-box">
-			<p class="py-4">เกิดข้อผิดพลาดในการลงชื่อ โปรดลองลงชื่อใหม่อีกครั้ง</p>
-			<div class="modal-action">
-				<button class="btn">ปิด</button>
-			</div>
-		</form>
-	</dialog>
 </form>

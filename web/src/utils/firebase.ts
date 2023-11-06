@@ -22,12 +22,12 @@ import {
 	firebaseConfigSchema,
 	PERSONALID_KEY,
 	type Document,
-} from '@conforall/models';
+} from '@pension-act/models';
 import {
 	FIRESTORE_DOCUMENT_COLLECTION,
 	FIRESTORE_USER_COLLECTION,
 	IGNORED_PERSONALID,
-} from '@conforall/constants';
+} from '@pension-act/constants';
 
 const firebaseConfig = parse(
 	firebaseConfigSchema,

@@ -1,5 +1,5 @@
 {
-	"name": "@conforall/models",
+	"name": "@pension-act/models",
 	"version": "0.0.1",
 	"main": "src/index.ts",
 	"dependencies": {

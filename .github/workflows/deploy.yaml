@@ -1,0 +1,38 @@
+name: Deploy Web to Github Page
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**/README.md'
+      - 'preprocessor/**'
+      - 'pdf-render/**'
+
+concurrency:
+  group: deployment
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: yarn
+      - name: Install dependencies
+        run: yarn
+      - name: Build web
+        run: cd web && yarn build && cd ..
+        env:
+          PUBLIC_FIREBASE_CONFIG: ${{ secrets.PUBLIC_FIREBASE_CONFIG }}
+          PUBLIC_FIREBASE_ADMIN: ${{ secrets.PUBLIC_FIREBASE_ADMIN }}
+      - name: Deploy to Github Page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./web/dist
+          cname: pension-act.com

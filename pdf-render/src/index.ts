@@ -5,7 +5,7 @@ import { parse } from 'csv-parse/sync';
 const INPUT_DIR = 'in';
 const OUTPUT_DIR = 'out';
 
-const TARGETTED_FILENAME = 'conforall-cleaned-signature-';
+const TARGETTED_FILENAME = 'pension-act-cleaned-signature-';
 
 export type SignedPetition = {
 	personalid: string;
@@ -32,7 +32,7 @@ async function main() {
 		console.log(`Filling ${signs.length} signatures...`);
 		const pdfBytes = await fill(signs);
 
-		const outputFilename = `${OUTPUT_DIR}/conforall-signature-${i + 1}.pdf`;
+		const outputFilename = `${OUTPUT_DIR}/pension-act-signature-${i + 1}.pdf`;
 		console.log(`Writing ${outputFilename}...`);
 		await writeFile(outputFilename, pdfBytes);
 
