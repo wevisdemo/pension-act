@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Card from './card.svelte';
-	import ExpandedCard from './expanded-card.svelte';
 	import type { CardData } from './shared';
 	interface MainTopic {
 		image: string;
