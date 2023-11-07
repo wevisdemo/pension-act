@@ -442,31 +442,32 @@
 				<span class="loading loading-spinner" />
 			{/if}
 		</button>
-
-		<dialog
-			id="success-dialog"
-			bind:this={successDialog}
-			class="modal modal-bottom sm:modal-middle"
-		>
-			<form method="dialog" class="modal-box">
-				<p class="py-4">ลงชื่อสำเร็จ</p>
-				<div class="modal-action">
-					<button class="btn">ปิด</button>
-				</div>
-			</form>
-		</dialog>
-
-		<dialog
-			id="error-dialog"
-			bind:this={errorDialog}
-			class="modal modal-bottom sm:modal-middle"
-		>
-			<form method="dialog" class="modal-box">
-				<p class="py-4">เกิดข้อผิดพลาดในการลงชื่อ โปรดลองลงชื่อใหม่อีกครั้ง</p>
-				<div class="modal-action">
-					<button class="btn">ปิด</button>
-				</div>
-			</form>
-		</dialog>
 	</div>
+	<dialog
+		id="success-dialog"
+		bind:this={successDialog}
+		class="modal modal-bottom sm:modal-middle"
+	>
+		<form method="dialog" class="modal-box">
+			<p class="text-neutral py-4">ลงชื่อสำเร็จ</p>
+			<div class="modal-action">
+				<button class="btn">ปิด</button>
+			</div>
+		</form>
+	</dialog>
+
+	<dialog
+		id="error-dialog"
+		bind:this={errorDialog}
+		class="modal modal-bottom sm:modal-middle"
+	>
+		<form method="dialog" class="modal-box">
+			<p class="text-neutral py-4">
+				เกิดข้อผิดพลาดในการลงชื่อ โปรดลองลงชื่อใหม่อีกครั้ง
+			</p>
+			<div class="modal-action">
+				<button class="btn">ปิด</button>
+			</div>
+		</form>
+	</dialog>
 </form>
