@@ -18,7 +18,7 @@
 		เปลี่ยนจาก<span class="text-secondary font-semibold"
 			>เบี้ยยังชีพแบบรัฐสงเคราะห์</span
 		>
-		ให้เป็น<span class="text-primary ffont-semibold"
+		ให้เป็น<span class="text-primary font-semibold"
 			>บำนาญถ้วนหน้าด้วยรัฐสวัสดิการ</span
 		>
 	</p>
@@ -39,7 +39,7 @@
 	</p>
 	<a
 		href="#petition"
-		class="btn btn-block bg-primary hover:bg-primary-focus text-body-03-semibold text-base-100 md:w-[85vw] md:max-w-[450px]"
+		class="btn btn-block bg-primary border-[0px] hover:bg-primary-focus text-body-03-semibold text-base-100 md:w-[85vw] md:max-w-[450px]"
 	>
 		ลงชื่อเลย
 		<img src="/icons/pen.svg" alt="icon-pen" fill="#FFD3C9" />
@@ -49,8 +49,110 @@
 
 <style>
 	.highlight {
-		text-shadow: -4px -4px 3px white, 4px -4px 3px white, -4px 4px 3px white,
-			4px 4px 3px white, -4px 0px 3px white, 4px 0px 3px white,
-			0px -4px 3px white, 0px 4px 3px white;
+		text-shadow: 
+		 /* -8px -8px 1px white,  */
+		 /* -7px -8px 1px white,  */
+		 /* -6px -8px 1px white,  */
+		 /* -5px -8px 1px white,  */ -4px -8px
+				1px white,
+			-3px -8px 1px white, -2px -8px 1px white, -1px -8px 1px white,
+			0px -8px 1px white, 1px -8px 1px white, 2px -8px 1px white,
+			3px -8px 1px white, 4px -8px 1px white,
+			/* 5px -8px 1px white,  */ /* 6px -8px 1px white,  */
+				/* 7px -8px 1px white,  */ /* 8px -8px 1px white,  */
+				/* -8px -7px 1px white,  */ /* -7px -7px 1px white,  */ -6px -7px 1px
+				white,
+			-5px -7px 1px white, -4px -7px 1px white, -3px -7px 1px white,
+			-2px -7px 1px white, -1px -7px 1px white, 0px -7px 1px white,
+			1px -7px 1px white, 2px -7px 1px white, 3px -7px 1px white,
+			4px -7px 1px white, 5px -7px 1px white, 6px -7px 1px white,
+			/* 7px -7px 1px white,  */ /* 8px -7px 1px white,  */
+				/* -8px -6px 1px white,  */ -7px -6px 1px white,
+			/* -6px -6px 1px white, */ -5px -6px 1px white, -4px -6px 1px white,
+			-3px -6px 1px white, -2px -6px 1px white, -1px -6px 1px white,
+			0px -6px 1px white, 1px -6px 1px white, 2px -6px 1px white,
+			3px -6px 1px white, 4px -6px 1px white, 5px -6px 1px white,
+			/* 6px -6px 1px white, */ 7px -6px 1px white,
+			/* 8px -6px 1px white,  */ /* -8px -5px 1px white,  */ -7px -5px 1px white,
+			-6px -5px 1px white, -5px -5px 1px white, -4px -5px 1px white,
+			-3px -5px 1px white, -2px -5px 1px white, -1px -5px 1px white,
+			0px -5px 1px white, 1px -5px 1px white, 2px -5px 1px white,
+			3px -5px 1px white, 4px -5px 1px white, 5px -5px 1px white,
+			6px -5px 1px white, 7px -5px 1px white,
+			/* 8px -5px 1px white,  */ -8px -4px 1px white, -7px -4px 1px white,
+			-6px -4px 1px white, -5px -4px 1px white, -4px -4px 1px white,
+			-3px -4px 1px white, -2px -4px 1px white, -1px -4px 1px white,
+			0px -4px 1px white, 1px -4px 1px white, 2px -4px 1px white,
+			3px -4px 1px white, 4px -4px 1px white, 5px -4px 1px white,
+			6px -4px 1px white, 7px -4px 1px white, 8px -4px 1px white,
+			-8px -3px 1px white, -7px -3px 1px white, -6px -3px 1px white,
+			-5px -3px 1px white, -4px -3px 1px white, -3px -3px 1px white,
+			-2px -3px 1px white, -1px -3px 1px white, 0px -3px 1px white,
+			1px -3px 1px white, 2px -3px 1px white, 3px -3px 1px white,
+			4px -3px 1px white, 5px -3px 1px white, 6px -3px 1px white,
+			7px -3px 1px white, 8px -3px 1px white, -8px -2px 1px white,
+			-7px -2px 1px white, -6px -2px 1px white, -5px -2px 1px white,
+			-4px -2px 1px white, -3px -2px 1px white, -2px -2px 1px white,
+			-1px -2px 1px white, 0px -2px 1px white, 1px -2px 1px white,
+			2px -2px 1px white, 3px -2px 1px white, 4px -2px 1px white,
+			5px -2px 1px white, 6px -2px 1px white, 7px -2px 1px white,
+			8px -2px 1px white, -8px -1px 1px white, -7px -1px 1px white,
+			-6px -1px 1px white, -5px -1px 1px white, -4px -1px 1px white,
+			-3px -1px 1px white, -2px -1px 1px white, -1px -1px 1px white,
+			0px -1px 1px white, 1px -1px 1px white, 2px -1px 1px white,
+			3px -1px 1px white, 4px -1px 1px white, 5px -1px 1px white,
+			6px -1px 1px white, 7px -1px 1px white, 8px -1px 1px white,
+			-8px 0px 1px white, -7px 0px 1px white, -6px 0px 1px white,
+			-5px 0px 1px white, -4px 0px 1px white, -3px 0px 1px white,
+			-2px 0px 1px white, -1px 0px 1px white, 0px 0px 1px white,
+			1px 0px 1px white, 2px 0px 1px white, 3px 0px 1px white, 4px 0px 1px white,
+			5px 0px 1px white, 6px 0px 1px white, 7px 0px 1px white, 8px 0px 1px white,
+			-8px 1px 1px white, -7px 1px 1px white, -6px 1px 1px white,
+			-5px 1px 1px white, -4px 1px 1px white, -3px 1px 1px white,
+			-2px 1px 1px white, -1px 1px 1px white, 0px 1px 1px white,
+			1px 1px 1px white, 2px 1px 1px white, 3px 1px 1px white, 4px 1px 1px white,
+			5px 1px 1px white, 6px 1px 1px white, 7px 1px 1px white, 8px 1px 1px white,
+			-8px 2px 1px white, -7px 2px 1px white, -6px 2px 1px white,
+			-5px 2px 1px white, -4px 2px 1px white, -3px 2px 1px white,
+			-2px 2px 1px white, -1px 2px 1px white, 0px 2px 1px white,
+			1px 2px 1px white, 2px 2px 1px white, 3px 2px 1px white, 4px 2px 1px white,
+			5px 2px 1px white, 6px 2px 1px white, 7px 2px 1px white, 8px 2px 1px white,
+			-8px 3px 1px white, -7px 3px 1px white, -6px 3px 1px white,
+			-5px 3px 1px white, -4px 3px 1px white, -3px 3px 1px white,
+			-2px 3px 1px white, -1px 3px 1px white, 0px 3px 1px white,
+			1px 3px 1px white, 2px 3px 1px white, 3px 3px 1px white, 4px 3px 1px white,
+			5px 3px 1px white, 6px 3px 1px white, 7px 3px 1px white, 8px 3px 1px white,
+			-8px 4px 1px white, -7px 4px 1px white, -6px 4px 1px white,
+			-5px 4px 1px white, -4px 4px 1px white, -3px 4px 1px white,
+			-2px 4px 1px white, -1px 4px 1px white, 0px 4px 1px white,
+			1px 4px 1px white, 2px 4px 1px white, 3px 4px 1px white, 4px 4px 1px white,
+			5px 4px 1px white, 6px 4px 1px white, 7px 4px 1px white, 8px 4px 1px white,
+			/* -8px 5px 1px white,  */ -7px 5px 1px white, -6px 5px 1px white,
+			-5px 5px 1px white, -4px 5px 1px white, -3px 5px 1px white,
+			-2px 5px 1px white, -1px 5px 1px white, 0px 5px 1px white,
+			1px 5px 1px white, 2px 5px 1px white, 3px 5px 1px white, 4px 5px 1px white,
+			5px 5px 1px white, 6px 5px 1px white, 7px 5px 1px white,
+			/* 8px 5px 1px white,  */ /* -8px 6px 1px white,  */ -7px 6px 1px white,
+			/* -6px 6px 1px white, */ -5px 6px 1px white, -4px 6px 1px white,
+			-3px 6px 1px white, -2px 6px 1px white, -1px 6px 1px white,
+			0px 6px 1px white, 1px 6px 1px white, 2px 6px 1px white, 3px 6px 1px white,
+			4px 6px 1px white, 5px 6px 1px white,
+			/* 6px 6px 1px white, */ 7px 6px 1px white,
+			/* 8px 6px 1px white,  */ /* -8px 7px 1px white,  */
+				/* -7px 7px 1px white,  */ -6px 7px 1px white,
+			-5px 7px 1px white, -4px 7px 1px white, -3px 7px 1px white,
+			-2px 7px 1px white, -1px 7px 1px white, 0px 7px 1px white,
+			1px 7px 1px white, 2px 7px 1px white, 3px 7px 1px white, 4px 7px 1px white,
+			5px 7px 1px white, 6px 7px 1px white,
+			/* 7px 7px 1px white,  */ /* 8px 7px 1px white,  */
+				/* -8px 8px 1px white,  */ /* -7px 8px 1px white,  */
+				/* -6px 8px 1px white,  */ /* -5px 8px 1px white,  */ -4px 8px 1px white,
+			-3px 8px 1px white, -2px 8px 1px white, -1px 8px 1px white,
+			0px 8px 1px white, 1px 8px 1px white, 2px 8px 1px white, 3px 8px 1px white,
+			4px 8px 1px white;
+		/* 5px 8px 1px white,  */
+		/* 6px 8px 1px white,  */
+		/* 7px 8px 1px white,  */
+		/* 8px 8px 1px white,  */
 	}
 </style>

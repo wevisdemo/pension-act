@@ -88,11 +88,11 @@
 			หลักการสำคัญ ของกฎหมายฉบับนี้
 		</h2>
 		<div
-			class="w-full flex flex-wrap justify-center md:space-x-[20px] mb-[20px]"
+			class="w-full flex flex-wrap justify-center md:space-x-[40px] mb-[40px]"
 		>
 			{#each mainTopics as topic, i}
 				<div
-					class="md:w-[85vw] max-w-[320px] flex flex-col items-center mt-[20px]"
+					class="md:w-[85vw] max-w-[280px] flex flex-col items-center mt-[40px]"
 				>
 					<img class="w-[120px]" src={topic.image} alt={`main-topic-${i}`} />
 					<p class="text-body-02-normal text-base-100 mt-[10px]">
@@ -116,7 +116,7 @@
 		<div class="w-full flex flex-wrap justify-center space-x-[20px]">
 			{#each reasonsForEdition as reason, i}
 				<div
-					class="md:w-[85vw] max-w-[320px] flex flex-col mt-[20px] text-body-02-normal"
+					class="md:w-[85vw] max-w-[280px] flex flex-col mt-[40px] text-body-02-normal"
 				>
 					<p class="font-semibold text-primary">
 						{reason.highlightText}

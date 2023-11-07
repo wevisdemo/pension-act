@@ -15,9 +15,7 @@ export const documentSchema = object({
 	location: string([toTrimmed(), minLength(1)]),
 	day: string('วันที่ไม่ถูกต้อง', [regex(/([1-9]|[12][0-9]|3[01])/)]),
 	month: string('เดือนไม่ถูกต้อง', [regex(/[1-9]|1[0-2]/)]),
-	year: string('ปีไม่ถูกต้อง', [
-		regex(/(190[0-9]|19[1-9][0-9]|20[0-9]{2}|2100)/),
-	]),
+	year: string('ปีไม่ถูกต้อง', [regex(/(20[0-9]{2}|19[789]\d)+543/)]),
 	[PERSONALID_KEY]: string([toTrimmed(), length(13)]),
 	prefix: optional(string()),
 	email: optional(string()),

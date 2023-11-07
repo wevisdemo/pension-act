@@ -24,7 +24,10 @@
 	let monthOptions = [...Array.from({ length: 12 }, (_, i) => i + 1)];
 
 	let yearOptions = [
-		...Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i),
+		...Array.from(
+			{ length: 100 },
+			(_, i) => new Date().getFullYear() - i + 543
+		),
 	];
 
 	const thisDate = new Date();
@@ -32,7 +35,7 @@
 	let dateValue = {
 		day: thisDate.getDate(),
 		month: thisDate.getMonth() + 1,
-		year: thisDate.getFullYear(),
+		year: thisDate.getFullYear() + 543,
 	};
 
 	const setDateOptions = () => {
@@ -57,6 +60,9 @@
 	const { form, setTouched, setData, data, reset } = createForm({
 		validate(values) {
 			try {
+				values.day = dateValue.day.toString();
+				values.month = dateValue.month.toString();
+				values.year = dateValue.year.toString();
 				parse(documentSchema, values);
 			} catch (e) {
 				return flatten(e as ValiError).nested;
@@ -66,14 +72,16 @@
 		async onSubmit(values) {
 			isLoading = true;
 			try {
-				values.day = dateValue.day;
-				values.month = dateValue.month;
-				values.year = dateValue.year;
+				values.day = dateValue.day.toString();
+				values.month = dateValue.month.toString();
+				values.year = dateValue.year.toString();
+				console.log(values);
 				await submitDocument(parse(documentSchema, values));
 				successDialog.showModal();
 				clearPad();
 				reset();
 			} catch (e) {
+				console.log(e);
 				errorDialog.showModal();
 			}
 			isLoading = false;
@@ -391,7 +399,8 @@
 				/>
 				<span class="label-text"
 					>ข้าพเจ้ายินยอมลงชื่อเสนอกฎหมาย <a
-						href="/privacy-policy"
+						href="https://drive.google.com/file/d/1r8MtAdoqSPW37I4aQrgID5U1cFHqy-R2/view"
+						target="_blank"
 						class="underline">อ่านนโยบายการคุ้มครองข้อมูลส่วนบุคคล</a
 					></span
 				>

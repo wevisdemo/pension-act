@@ -7,7 +7,9 @@
 >
 	<div class="md:max-w-[320px]">
 		<h2 class="heading-responsive-02">ร่วมลงชื่อ</h2>
-		<p>เพื่อเสนอกฎหมาย ผู้สูงอายุและบำนาญพื้นฐานแห่งชาติ พ.ศ. ...</p>
+		<p>
+			เพื่อเสนอกฎหมาย ผู้สูงอายุและบำนาญพื้นฐานแห่งชาติ(ฉบับที่ ..) พ.ศ. ...
+		</p>
 		<div class="p-[10px] text-neutral bg-primary-focus rounded-[8px]">
 			<p class="font-semibold">คุณสมบัติของผู้เข้าชื่อเสนอกฎหมาย</p>
 			<ul class="list-disc list-inside">
