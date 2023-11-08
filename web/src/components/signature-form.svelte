@@ -6,12 +6,13 @@
 	import SignaturePad from 'signature_pad';
 	import { documentSchema } from '@pension-act/models';
 	import { submitDocument } from '../utils/firebase';
+	import TextDialog from './text-dialog.svelte';
 
 	let signatureCanvas: HTMLCanvasElement;
 	let signaturePad: SignaturePad;
-	let successDialog: HTMLDialogElement;
-	let errorDialog: HTMLDialogElement;
-	let signatureEnabled = false;
+	let isSuccessDialogOpened = false;
+	let isErrorDialogOpened = false;
+	let isSignatureEnabled = false;
 	let isLoading = false;
 	const canvasResizeObserver = new ResizeObserver((entries) => {
 		signatureCanvas.width = entries[0].target.clientWidth;
@@ -77,12 +78,12 @@
 				values.year = dateValue.year.toString();
 				console.log(values);
 				await submitDocument(parse(documentSchema, values));
-				successDialog.showModal();
+				isSuccessDialogOpened = true;
 				clearPad();
 				reset();
 			} catch (e) {
 				console.log(e);
-				errorDialog.showModal();
+				isErrorDialogOpened = true;
 			}
 			isLoading = false;
 		},
@@ -314,13 +315,13 @@
 			</div>
 			<div class="relative">
 				<canvas
-					class="bg-base-200 h-[258px] w-full rounded-sm {!signatureEnabled ||
+					class="bg-base-200 h-[258px] w-full rounded-sm {!isSignatureEnabled ||
 					isLoading
 						? 'pointer-events-none'
 						: ''}"
 					bind:this={signatureCanvas}
 				/>
-				{#if signatureEnabled}
+				{#if isSignatureEnabled}
 					<button
 						type="button"
 						class="btn btn-outline btn-accent absolute right-[10px] bottom-4"
@@ -353,7 +354,7 @@
 						<button
 							type="button"
 							class="btn bg-base-100 heading-03 shadow-xl"
-							on:click={() => (signatureEnabled = true)}
+							on:click={() => (isSignatureEnabled = true)}
 						>
 							คลิกเพื่อกรอกลายเซ็น
 							<svg
@@ -443,31 +444,15 @@
 			{/if}
 		</button>
 	</div>
-	<dialog
-		id="success-dialog"
-		bind:this={successDialog}
-		class="modal modal-bottom sm:modal-middle"
-	>
-		<form method="dialog" class="modal-box">
-			<p class="text-neutral py-4">ลงชื่อสำเร็จ</p>
-			<div class="modal-action">
-				<button class="btn">ปิด</button>
-			</div>
-		</form>
-	</dialog>
-
-	<dialog
-		id="error-dialog"
-		bind:this={errorDialog}
-		class="modal modal-bottom sm:modal-middle"
-	>
-		<form method="dialog" class="modal-box">
-			<p class="text-neutral py-4">
-				เกิดข้อผิดพลาดในการลงชื่อ โปรดลองลงชื่อใหม่อีกครั้ง
-			</p>
-			<div class="modal-action">
-				<button class="btn">ปิด</button>
-			</div>
-		</form>
-	</dialog>
 </form>
+
+<TextDialog
+	isOpened={isSuccessDialogOpened}
+	on:close={() => (isSuccessDialogOpened = false)}>ลงชื่อสำเร็จ</TextDialog
+>
+
+<TextDialog
+	isOpened={isErrorDialogOpened}
+	on:close={() => (isErrorDialogOpened = false)}
+	>เกิดข้อผิดพลาดในการลงชื่อ โปรดลองลงชื่อใหม่อีกครั้ง</TextDialog
+>
