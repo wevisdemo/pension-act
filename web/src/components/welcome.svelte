@@ -1,7 +1,18 @@
 <script>
 	import SocialGroup from './social-group.svelte';
+	import { countSubmittedDocuments } from '../utils/firebase';
+	import { onMount } from 'svelte';
 
-	export let documentCount = 0;
+	let documentCount = 0;
+
+	onMount(async () => {
+		try {
+			const count = await countSubmittedDocuments();
+			documentCount = count;
+		} catch (error) {
+			console.error(error);
+		}
+	});
 </script>
 
 <div

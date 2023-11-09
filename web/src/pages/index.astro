@@ -5,9 +5,6 @@ import Welcome from '../components/welcome.svelte';
 import Petition from '../components/petition.svelte';
 import Navbar from '../components/navbar.svelte';
 import Info from '../components/info.svelte';
-import { countSubmittedDocuments } from '../utils/firebase';
-
-let documentCount = await countSubmittedDocuments();
 ---
 
 <script>
@@ -40,7 +37,7 @@ let documentCount = await countSubmittedDocuments();
 			id="welcome"
 			class="bg-base-300 min-h-screen flex justify-center items-center relative"
 		>
-			<Welcome documentCount={documentCount} />
+			<Welcome client:load />
 		</section>
 
 		<section id="nav" class="bg-primary p-0 w-screen fixed top-0 z-50">
