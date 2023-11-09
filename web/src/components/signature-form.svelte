@@ -76,7 +76,6 @@
 				values.day = dateValue.day.toString();
 				values.month = dateValue.month.toString();
 				values.year = dateValue.year.toString();
-				console.log(values);
 				await submitDocument(parse(documentSchema, values));
 				isSuccessDialogOpened = true;
 				clearPad();
@@ -448,7 +447,10 @@
 
 <TextDialog
 	isOpened={isSuccessDialogOpened}
-	on:close={() => (isSuccessDialogOpened = false)}>ลงชื่อสำเร็จ</TextDialog
+	on:close={() => {
+		isSuccessDialogOpened = false;
+		window.scrollTo(0, 0);
+	}}>ลงชื่อสำเร็จ</TextDialog
 >
 
 <TextDialog
