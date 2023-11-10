@@ -1,4 +1,4 @@
-const Ca="documents",Iu="users",Tu="1111111111111",yy="https://pension-4all.com";/**
+const Ca="documents",Iu="users",Tu="1111111111111",yy="pension-4all.com";/**
  * @license
  * Copyright 2017 Google LLC
  *
