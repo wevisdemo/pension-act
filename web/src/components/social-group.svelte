@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { WEB_URI } from '@pension-act/constants';
-	const PROD_URL = encodeURI(WEB_URI);
+	import { WEB_DOMAIN } from '@pension-act/constants';
+	const PROD_URL = encodeURI(`https://${WEB_DOMAIN}`);
 </script>
 
 <div class="flex [&>*:not(:first-child)]:ml-[4px] justify-center">
