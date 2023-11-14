@@ -17,7 +17,7 @@ import {
 	FIRESTORE_DOCUMENT_COLLECTION,
 	IGNORED_PERSONALID,
 } from '@pension-act/constants';
-import { writeFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
 
 const OUTPUT_DIR = 'out';
 const PAGE_LIMIT = 1000;
@@ -39,6 +39,10 @@ const auth = getAuth();
 	await signInWithEmailAndPassword(auth, email, password);
 
 	console.log('Logged in as admin.');
+
+	if (!existsSync(OUTPUT_DIR)) {
+		mkdirSync(OUTPUT_DIR);
+	}
 
 	let lastPersonalid: string = '';
 	let batchCount = 1;
