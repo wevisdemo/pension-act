@@ -10,6 +10,8 @@ const TARGETTED_FILENAME = 'pension-act-cleaned-signature-';
 export type SignedPetition = {
 	personalid: string;
 	name: string;
+	location: string;
+	date: string;
 	signature: string;
 };
 
