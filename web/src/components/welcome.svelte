@@ -1,18 +1,18 @@
 <script>
 	import SocialGroup from './social-group.svelte';
-	import { countSubmittedDocuments } from '../utils/firebase';
-	import { onMount } from 'svelte';
+	// import { countSubmittedDocuments } from '../utils/firebase';
+	// import { onMount } from 'svelte';
 
-	let documentCount = 0;
+	const documentCount = 12280;
 
-	onMount(async () => {
-		try {
-			const count = await countSubmittedDocuments();
-			documentCount = count;
-		} catch (error) {
-			console.error(error);
-		}
-	});
+	// onMount(async () => {
+	// 	try {
+	// 		const count = await countSubmittedDocuments();
+	// 		documentCount = count;
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// });
 </script>
 
 <div
@@ -48,13 +48,18 @@
 			dateStyle: 'medium',
 		})}
 	</p>
-	<a
+	<!-- <a
 		href="#petition"
 		class="btn btn-block bg-primary border-[0px] hover:bg-primary-focus text-body-03-semibold text-base-100 md:w-[85vw] md:max-w-[450px]"
 	>
 		ลงชื่อเลย
 		<img src="/icons/pen.svg" alt="icon-pen" fill="#FFD3C9" />
-	</a>
+	</a> -->
+	<div class="flex flex-row w-full max-w-md items-center gap-2">
+		<div class="flex-1 h-[2px] bg-secondary" />
+		<p class="heading-responsive-01 text-secondary">ปิดรับลงชื่อแล้ว</p>
+		<div class="flex-1 h-[2px] bg-secondary" />
+	</div>
 	<SocialGroup />
 </div>
 
