@@ -3,7 +3,7 @@ import { PDFDocument, PDFFont, PDFPage } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { SignedPetition } from '.';
 
-type FillingBox = { x: number, y: number, maxWidth?: number };
+type FillingBox = { x: number; y: number; maxWidth?: number };
 
 const FONT_SIZE = 10;
 const LINE_HEIGHT = 14;
@@ -35,49 +35,50 @@ const MONTHS = [
 	'กันยายน',
 	'ตุลาคม',
 	'พฤศจิกายน',
-	'ธันวาคม'
+	'ธันวาคม',
 ];
 
 export async function fill(signs: SignedPetition[]) {
 	const docBuffer = await readFile('./resources/petition-form.pdf');
-	const doc = await PDFDocument.load(docBuffer);
+	const templateDoc = await PDFDocument.load(docBuffer);
+
+	const targetedDoc = await PDFDocument.create();
 
 	const fontBuffer = await readFile('./resources/Sarabun-Regular.ttf');
-	doc.registerFontkit(fontkit);
-	const font = await doc.embedFont(fontBuffer, { subset: true });
+	targetedDoc.registerFontkit(fontkit);
+	const font = await targetedDoc.embedFont(fontBuffer, { subset: true });
 
 	for (let i = 0; i < signs.length; i++) {
 		if (i !== 0 && i % 100 === 0) {
 			console.log(`--- Filling page number ${i}...`);
 		}
-		const page = await fillPage(
-			signs[i],
-			{ doc, font },
-		);
-		doc.addPage(page);
+		const [page] = await targetedDoc.copyPages(templateDoc, [0]);
+		await fillPage(signs[i], { page, targetedDoc, font });
+		targetedDoc.addPage(page);
 	}
 
-	doc.removePage(0);
-	return doc.save();
+	return targetedDoc.save();
 }
 
 async function fillPage(
 	sign: SignedPetition,
 	{
-		doc,
+		page,
+		targetedDoc,
 		font,
 	}: {
-		doc: PDFDocument;
+		page: PDFPage;
+		targetedDoc: PDFDocument;
 		font: PDFFont;
 	},
-): Promise<PDFPage> {
-	const [page] = await doc.copyPages(doc, [0]);
-
+): Promise<void> {
 	// Fill in locaiton
-	page.moveTo(
-		LOCATION_POSITION.x, LOCATION_POSITION.y
+	page.moveTo(LOCATION_POSITION.x, LOCATION_POSITION.y);
+	const locaitonFontSize = findFontSizeThatFits(
+		sign.location,
+		LOCATION_POSITION.maxWidth || 0,
+		font,
 	);
-	const locaitonFontSize = findFontSizeThatFits(sign.location, LOCATION_POSITION.maxWidth || 0, font);
 	page.drawText(sign.location, {
 		size: locaitonFontSize,
 		lineHeight: LINE_HEIGHT,
@@ -87,27 +88,20 @@ async function fillPage(
 
 	// Fill in date
 	const dateElements = sign.date.split('/');
-	page.moveTo(
-		DAY_POSITION.x, DAY_POSITION.y
-	);
+	page.moveTo(DAY_POSITION.x, DAY_POSITION.y);
 	page.drawText(`${dateElements[0]}`, {
 		size: FONT_SIZE,
 		lineHeight: LINE_HEIGHT,
 		font,
 	});
-	page.moveTo(
-		MONTH_POSITION.x, MONTH_POSITION.y
-	);
+	page.moveTo(MONTH_POSITION.x, MONTH_POSITION.y);
 	page.drawText(`${MONTHS[Number(dateElements[1]) - 1]}`, {
 		size: FONT_SIZE,
 		lineHeight: LINE_HEIGHT,
 		maxWidth: MONTH_POSITION.maxWidth,
 		font,
-		
 	});
-	page.moveTo(
-		YEAR_POSITION.x, YEAR_POSITION.y
-	);
+	page.moveTo(YEAR_POSITION.x, YEAR_POSITION.y);
 	page.drawText(`${dateElements[2]}`, {
 		size: FONT_SIZE,
 		lineHeight: LINE_HEIGHT,
@@ -115,10 +109,12 @@ async function fillPage(
 	});
 
 	// Fill name
-	page.moveTo(
-		NAME_POSITION.x, NAME_POSITION.y
+	page.moveTo(NAME_POSITION.x, NAME_POSITION.y);
+	const nameFontSize = findFontSizeThatFits(
+		sign.name,
+		NAME_POSITION.maxWidth || 0,
+		font,
 	);
-	const nameFontSize = findFontSizeThatFits(sign.name, NAME_POSITION.maxWidth || 0, font);
 	page.drawText(sign.name, {
 		size: nameFontSize,
 		lineHeight: LINE_HEIGHT,
@@ -127,9 +123,7 @@ async function fillPage(
 	});
 
 	// Fill citizen ID
-	page.moveTo(
-		CITIZEN_ID_POSITION.x, CITIZEN_ID_POSITION.y
-	);
+	page.moveTo(CITIZEN_ID_POSITION.x, CITIZEN_ID_POSITION.y);
 	const e = sign.personalid.split('');
 	for (let i = 0; i < 13; i++) {
 		page.drawText(e[i], {
@@ -145,8 +139,9 @@ async function fillPage(
 	}
 
 	// Fill signature
-	const signature = await doc.embedPng(sign.signature);
-	const {width: signatureFitWidth, height: signatureFitHeight} = signature.scaleToFit(100, 50);
+	const signature = await targetedDoc.embedPng(sign.signature);
+	const { width: signatureFitWidth, height: signatureFitHeight } =
+		signature.scaleToFit(100, 50);
 	page.drawImage(signature, {
 		width: signatureFitWidth,
 		height: signatureFitHeight,
@@ -155,18 +150,18 @@ async function fillPage(
 	});
 
 	// Fill signature name
-	page.moveTo(
-		SIGNATURE_NAME_POSITION.x, SIGNATURE_NAME_POSITION.y
+	page.moveTo(SIGNATURE_NAME_POSITION.x, SIGNATURE_NAME_POSITION.y);
+	const signatureNameFontSize = findFontSizeThatFits(
+		sign.name,
+		SIGNATURE_NAME_POSITION.maxWidth || 0,
+		font,
 	);
-	const signatureNameFontSize = findFontSizeThatFits(sign.name, SIGNATURE_NAME_POSITION.maxWidth || 0, font);
 	page.drawText(sign.name, {
 		size: signatureNameFontSize,
 		lineHeight: LINE_HEIGHT,
 		maxWidth: SIGNATURE_NAME_POSITION.maxWidth,
 		font,
 	});
-
-	return page;
 }
 
 function findFontSizeThatFits(
@@ -181,4 +176,3 @@ function findFontSizeThatFits(
 	}
 	return 1;
 }
-
